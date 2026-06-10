@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The LA City Guide - Your ultimate companion for LA 2028 Olympics. Explore neighborhoods, venues, restaurants, and build your perfect LA itinerary.">
+<meta name="keywords" content="LA Olympics 2028, Los Angeles city guide, LA neighborhoods, LA restaurants, Olympics venues, LA travel guide">
+<title>The LA City Guide | Your Olympic LA 2028 Companion</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+<style>
+:root{--gold:#D4AF37;--la-blue:#0072CE;--dark:#0a0a1a;--darker:#050510;--light:#f8f9fa;--text:#333;--accent:#FF6B35;--success:#28a745;--card-bg:#ffffff;--border:#e0e0e0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--light);color:var(--text);line-height:1.6;}
+
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,10,30,0.95);backdrop-filter:blur(10px);padding:0 1rem;border-bottom:2px solid var(--gold);}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-icon{font-size:1.8rem;}
+.nav-logo-text{color:#fff;font-size:1.1rem;font-weight:700;letter-spacing:0.5px;}
+.nav-logo-text span{color:var(--gold);}
+.nav-links{display:flex;gap:0.2rem;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;padding:0.4rem 0.8rem;border-radius:6px;font-size:0.9rem;font-weight:500;transition:all 0.2s;}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.1);}
+.nav-links a.active{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--dark)!important;border-radius:20px!important;padding:0.4rem 1.2rem!important;font-weight:700!important;}
+.nav-cta:hover{background:#c9a227!important;}
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:0.5rem;}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#020818 0%,#0a1628 40%,#0d1f3c 70%,#162040 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 1rem 2rem;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero-rings{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:8px;opacity:0.06;font-size:8rem;user-select:none;}
+.hero-content{position:relative;z-index:2;max-width:900px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);color:var(--gold);padding:0.4rem 1.2rem;border-radius:20px;font-size:0.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.2rem;}
+.hero h1 .highlight{color:var(--gold);}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.3rem);color:rgba(255,255,255,0.75);max-width:650px;margin:0 auto 2.5rem;}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:0.8rem 2rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.3s;cursor:pointer;border:none;}
+.btn-primary{background:var(--gold);color:var(--dark);box-shadow:0 4px 20px rgba(212,175,55,0.4);}
+.btn-primary:hover{background:#c9a227;transform:translateY(-2px);box-shadow:0 6px 25px rgba(212,175,55,0.5);}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.4);}
+.btn-outline:hover{background:rgba(255,255,255,0.1);border-color:#fff;transform:translateY(-2px);}
+.hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-size:2rem;font-weight:900;color:var(--gold);display:block;}
+.stat-label{font-size:0.8rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.5);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.scroll-arrow{width:20px;height:20px;border-right:2px solid rgba(255,255,255,0.4);border-bottom:2px solid rgba(255,255,255,0.4);transform:rotate(45deg);animation:bounce 1.5s infinite;}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0);}50%{transform:rotate(45deg) translateY(5px);}}
+
+/* SECTIONS */
+section{padding:5rem 1rem;}
+.container{max-width:1400px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:3rem;}
+.section-label{display:inline-block;background:var(--gold);color:var(--dark);font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:0.3rem 1rem;border-radius:20px;margin-bottom:1rem;}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--dark);margin-bottom:1rem;}
+.section-sub{font-size:1.1rem;color:#666;max-width:600px;margin:0 auto;}
+
+/* FEATURES */
+.features-section{background:#fff;}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;}
+.feature-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all 0.3s;text-align:center;}
+.feature-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.1);border-color:var(--gold);}
+.feature-icon{font-size:3rem;margin-bottom:1rem;display:block;}
+.feature-title{font-size:1.2rem;font-weight:700;margin-bottom:0.7rem;color:var(--dark);}
+.feature-desc{color:#666;font-size:0.95rem;line-height:1.7;}
+
+/* NEIGHBORHOODS */
+.neighborhoods-section{background:linear-gradient(135deg,#f8f9fa 0%,#e8f4ff 100%);}
+.neighborhoods-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+.hood-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.3s;cursor:pointer;}
+.hood-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,0.15);}
+.hood-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;}
+.hood-badge{position:absolute;top:12px;right:12px;background:var(--gold);color:var(--dark);font-size:0.7rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:20px;text-transform:uppercase;letter-spacing:1px;}
+.hood-body{padding:1.2rem;}
+.hood-name{font-size:1.15rem;font-weight:700;margin-bottom:0.4rem;color:var(--dark);}
+.hood-desc{font-size:0.88rem;color:#666;margin-bottom:0.8rem;line-height:1.5;}
+.hood-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.tag{background:#f0f4ff;color:var(--la-blue);font-size:0.75rem;padding:0.2rem 0.6rem;border-radius:20px;font-weight:500;}
+
+/* VENUES */
+.venues-section{background:#fff;}
+.venues-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;}
+.venue-card{border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;}
+.venue-card:hover{border-color:var(--la-blue);box-shadow:0 8px 25px rgba(0,114,206,0.15);transform:translateY(-3px);}
+.venue-header{background:linear-gradient(135deg,var(--la-blue),#004d9f);padding:1.5rem;color:#fff;}
+.venue-sport{font-size:2.5rem;margin-bottom:0.5rem;}
+.venue-name{font-size:1.1rem;font-weight:700;}
+.venue-location{font-size:0.85rem;opacity:0.85;margin-top:0.3rem;}
+.venue-body{padding:1.2rem;}
+.venue-info{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.8rem;}
+.info-chip{display:flex;align-items:center;gap:0.3rem;background:#f5f5f5;padding:0.3rem 0.7rem;border-radius:20px;font-size:0.8rem;color:#555;}
+.venue-transit{font-size:0.85rem;color:#555;border-top:1px solid #eee;padding-top:0.8rem;}
+.venue-transit strong{color:var(--la-blue);}
+
+/* ITINERARY BUILDER */
+.itinerary-section{background:linear-gradient(135deg,#0a1628 0%,#162040 100%);color:#fff;}
+.itinerary-section .section-title{color:#fff;}
+.itinerary-section .section-sub{color:rgba(255,255,255,0.7);}
+.builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
+.builder-form{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:2rem;}
+.form-group{margin-bottom:1.2rem;}
+.form-label{display:block;font-size:0.9rem;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:0.5rem;}
+.form-input,.form-select{width:100%;padding:0.7rem 1rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-size:0.95rem;transition:border-color 0.2s;}
+.form-input:focus,.form-select:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,0.15);}
+.form-input::placeholder{color:rgba(255,255,255,0.4);}
+.form-select option{background:#1a2a4a;color:#fff;}
+.interests-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;}
+.interest-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.8);padding:0.5rem;border-radius:8px;font-size:0.8rem;cursor:pointer;transition:all 0.2s;text-align:center;}
+.interest-btn.selected,.interest-btn:hover{background:rgba(212,175,55,0.2);border-color:var(--gold);color:var(--gold);}
+.builder-result{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;min-height:400px;}
+.result-placeholder{text-align:center;padding:3rem 1rem;color:rgba(255,255,255,0.5);}
+.result-placeholder .icon{font-size:4rem;display:block;margin-bottom:1rem;}
+.itinerary-day{margin-bottom:1.5rem;}
+.day-header{display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
+.day-number{background:var(--gold);color:var(--dark);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;flex-shrink:0;}
+.day-title{font-weight:700;font-size:1rem;}
+.activity{display:flex;gap:12px;margin-bottom:0.8rem;padding:0.8rem;background:rgba(255,255,255,0.07);border-radius:10px;border-left:3px solid var(--gold);}
+.activity-time{font-size:0.8rem;color:var(--gold);font-weight:700;min-width:60px;padding-top:2px;}
+.activity-details{}
+.activity-name{font-weight:600;font-size:0.9rem;margin-bottom:0.2rem;}
+.activity-note{font-size:0.8rem;color:rgba(255,255,255,0.6);}
+
+/* RESTAURANTS */
+.restaurants-section{background:linear-gradient(135deg,#fff9f0 0%,#fff 100%);}
+.restaurants-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+.restaurant-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.5rem;transition:all 0.3s;}
+.restaurant-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.1);border-color:var(--accent);}
+.restaurant-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.8rem;}
+.restaurant-name{font-size:1.05rem;font-weight:700;color:var(--dark);}
+.restaurant-price{color:#888;font-size:0.9rem;}
+.restaurant-cuisine{display:inline-block;background:#fff0e8;color:var(--accent);font-size:0.75rem;font-weight:600;padding:0.2rem 0.6rem;border-radius:20px;margin-bottom:0.7rem;}
+.restaurant-desc{font-size:0.88rem;color:#666;line-height:1.6;margin-bottom:0.8rem;}
+.restaurant-meta{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.meta-item{display:flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:#777;}
+
+/* TRANSPORT */
+.transport-section{background:#fff;}
+.transport-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.transport-card{background:linear-gradient(135deg,#f8faff,#fff);border:1px solid var(--border);border-radius:16px;padding:1.8rem;text-align:center;transition:all 0.3s;}
+.transport-card:hover{border-color:var(--la-blue);box-shadow:0 8px 25px rgba(0,114,206,0.1);transform:translateY(-3px);}
+.transport-icon{font-size:3rem;margin-bottom:1rem;display:block;}
+.transport-name{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;color:var(--dark);}
+.transport-desc{font-size:0.88rem;color:#666;line-height:1.6;}
+.transport-tip{margin-top:1rem;padding:0.6rem 1rem;background:#f0f4ff;border-radius:8px;font-size:0.82rem;color:var(--la-blue);font-weight:500;}
+
+/* DAY TRIPS */
+.daytrips-section{background:linear-gradient(135deg,#f0f8ff 0%,#e8f5e8 100%);}
+.daytrips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;}
+.trip-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:all 0.3s;}
+.trip-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,0.15);}
+.trip-header{padding:1.5rem;background:linear-gradient(135deg,#1a3a5c,#0a1f3d);color:#fff;}
+.trip-emoji{font-size:2.5rem;margin-bottom:0.5rem;display:block;}
+.trip-name{font-size:1.15rem;font-weight:700;}
+.trip-distance{font-size:0.85rem;color:var(--gold);margin-top:0.3rem;}
+.trip-body{padding:1.2rem;}
+.trip-desc{font-size:0.9rem;color:#666;margin-bottom:0.8rem;line-height:1.6;}
+.trip-highlights{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.highlight-tag{background:#e8f5e8;color:#2d7a2d;font-size:0.75rem;padding:0.2rem 0.6rem;border-radius:20px;font-weight:500;}
+
+/* INTERNATIONAL */
+.international-section{background:linear-gradient(135deg,#0a1628,#1a2a4a);color:#fff;}
+.international-section .section-title{color:#fff;}
+.international-section .section-sub{color:rgba(255,255,255,0.7);}
+.intl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:3rem;}
+.intl-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:1.5rem;text-align:center;transition:all 0.3s;}
+.intl-card:hover{background:rgba(255,255,255,0.12);border-color:var(--gold);}
+.intl-flag{font-size:3rem;margin-bottom:0.8rem;display:block;}
+.intl-country{font-size:1rem;font-weight:700;margin-bottom:0.4rem;}
+.intl-info{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.5;}
+.welcome-banner{background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.3);border-radius:16px;padding:2rem;text-align:center;}
+.welcome-banner h3{color:var(--gold);font-size:1.4rem;margin-bottom:0.7rem;}
+.welcome-banner p{color:rgba(255,255,255,0.8);}
+
+/* NEWSLETTER */
+.newsletter-section{background:var(--gold);}
+.newsletter-content{max-width:700px;margin:0 auto;text-align:center;}
+.newsletter-content h2{font-size:2rem;font-weight:800;color:var(--dark);margin-bottom:0.5rem;}
+.newsletter-content p{color:rgba(0,0,0,0.7);margin-bottom:2rem;}
+.newsletter-form{display:flex;gap:0.8rem;max-width:500px;margin:0 auto;}
+.newsletter-input{flex:1;padding:0.85rem 1.2rem;border:none;border-radius:50px;font-size:1rem;background:#fff;}
+.newsletter-input:focus{outline:2px solid var(--dark);}
+.newsletter-btn{background:var(--dark);color:#fff;border:none;padding:0.85rem 1.8rem;border-radius:50px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background 0.2s;}
+.newsletter-btn:hover{background:#1a1a3a;}
+
+/* FOOTER */
+.footer{background:#050510;color:rgba(255,255,255,0.8);padding:4rem 1rem 2rem;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;max-width:1400px;margin:0 auto 3rem;}
+.footer-brand .brand-logo{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:0.8rem;}
+.footer-brand .brand-logo span{color:var(--gold);}
+.footer-desc{font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.7;}
+.footer-col h4{color:#fff;font-size:0.95rem;font-weight:700;margin-bottom:1rem;}
+.footer-links{list-style:none;}
+.footer-links li{margin-bottom:0.6rem;}
+.footer-links a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.9rem;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;max-width:1400px;margin:0 auto;flex-wrap:wrap;gap:1rem;}
+.footer-bottom p{font-size:0.85rem;color:rgba(255,255,255,0.4);}
+.footer-badges{display:flex;gap:1rem;}
+.badge-item{font-size:0.8rem;background:rgba(255,255,255,0.07);padding:0.3rem 0.8rem;border-radius:20px;color:rgba(255,255,255,0.5);}
+
+/* MOBILE */
+@media(max-width:768px){
+.nav-links{display:none;position:fixed;top:64px;left:0;right:0;background:#000d1f;flex-direction:column;padding:1rem;gap:0.3rem;border-bottom:2px solid var(--gold);}
+.nav-links.open{display:flex;}
+.menu-toggle{display:block;}
+.builder-grid{grid-template-columns:1fr;}
+.footer-grid{grid-template-columns:1fr 1fr;}
+.newsletter-form{flex-direction:column;}
+.hero-stats{gap:1rem;}
+}
+</style>
+</head><body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<div class="nav-inner">
+<a href="#" class="nav-logo">
+<span class="nav-logo-icon">🏛️</span>
+<span class="nav-logo-text">The LA <span>City Guide</span></span>
+</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#neighborhoods">Neighborhoods</a></li>
+<li><a href="#venues">Venues</a></li>
+<li><a href="#planner">Plan Trip</a></li>
+<li><a href="#restaurants">Eat</a></li>
+<li><a href="#transport">Getting Around</a></li>
+<li><a href="#daytrips">Day Trips</a></li>
+<li><a href="#newsletter" class="nav-cta">Get Updates</a></li>
+</ul>
+<button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="hero-bg"></div>
+<div class="hero-rings">🔵🟡⚫🟢🔴</div>
+<div class="hero-content">
+<div class="hero-badge">🏆 LA 2028 Olympics Companion</div>
+<h1>Welcome to <span class="highlight">The LA</span><br>City Guide</h1>
+<p class="hero-sub">Your insider guide to Los Angeles — locals writing for visitors. Discover neighborhoods, plan your Olympic itinerary, and experience the city like a true Angeleno.</p>
+<div class="hero-actions">
+<a href="#planner" class="btn btn-primary">🗓️ Build My LA Itinerary</a>
+<a href="#neighborhoods" class="btn btn-outline">🗺️ Explore Neighborhoods</a>
+</div>
+<div class="hero-stats">
+<div class="stat"><span class="stat-num">20+</span><span class="stat-label">Neighborhoods</span></div>
+<div class="stat"><span class="stat-num">13</span><span class="stat-label">Olympic Venues</span></div>
+<div class="stat"><span class="stat-num">1.5M+</span><span class="stat-label">Expected Visitors</span></div>
+<div class="stat"><span class="stat-num">$18B</span><span class="stat-label">Economic Impact</span></div>
+</div>
+</div>
+<div class="hero-scroll"><span>Scroll</span><div class="scroll-arrow"></div></div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+<div class="container">
+<div class="section-header">
+<span class="section-label">Why Use This Guide</span>
+<h2 class="section-title">Everything You Need for LA 2028</h2>
+<p class="section-sub">From Olympic venues to hidden neighborhood gems — we've got every corner of LA covered.</p>
+</div>
+<div class="features-grid">
+<div class="feature-card"><span class="feature-icon">🏘️</span><h3 class="feature-title">Locals Writing for Visitors</h3><p class="feature-desc">Real recommendations from Angelenos who know the city beyond the tourist trail. Hidden restaurants, local favorites, and insider tips.</p></div>
+<div class="feature-card"><span class="feature-icon">🗓️</span><h3 class="feature-title">AI Itinerary Builder</h3><p class="feature-desc">Tell us your dates, interests, and venues — get a personalized day-by-day LA plan built for you, including transport and restaurant picks.</p></div>
+<div class="feature-card"><span class="feature-icon">🏟️</span><h3 class="feature-title">Olympic Venue Guide</h3><p class="feature-desc">Detailed guides for all 13 LA28 venues — how to get there, where to eat nearby, what to do before and after events.</p></div>
+<div class="feature-card"><span class="feature-icon">🌍</span><h3 class="feature-title">International Visitor Support</h3><p class="feature-desc">Visa tips, currency info, language help, and a warm welcome for visitors from every nation. LA is YOUR city too.</p></div>
+<div class="feature-card"><span class="feature-icon">🚇</span><h3 class="feature-title">Getting Around LA</h3><p class="feature-desc">Metro, rideshare, bikes, and walkable zones — the real guide to navigating Los Angeles without a car (or with one).</p></div>
+<div class="feature-card"><span class="feature-icon">🍽️</span><h3 class="feature-title">Eat Like a Local</h3><p class="feature-desc">From Roscoe's Chicken & Waffles to Bestia to Grand Central Market — LA's food scene is a world tour on one plate.</p></div>
+</div>
+</div>
+</section>
+
+<!-- NEIGHBORHOODS -->
+<section class="neighborhoods-section" id="neighborhoods">
+<div class="container">
+<div class="section-header">
+<span class="section-label">Explore LA</span>
+<h2 class="section-title">Neighborhoods Worth Knowing</h2>
+<p class="section-sub">Most visitors only see Hollywood and Santa Monica. Here's what real Angelenos know about.</p>
+</div>
+<div class="neighborhoods-grid">
+<div class="hood-card"><div class="hood-img" style="background:linear-gradient(135deg,#ff6b6b22,#ff6b6b44)">🌴<span class="hood-badge">Must-See</span></div><div class="hood-body"><h3 class="hood-name">Venice Beach</h3><p class="hood-desc">The iconic boardwalk, Muscle Beach, street performers, and the best people-watching in America. Arrive early to beat crowds.</p><div class="hood-tags"><span class="tag">Beach</span><span class="tag">Art</span><span class="tag">Boardwalk</span><span class="tag">Nightlife</span></div></div></div>
+<div class="hood-card"><div class="hood-img" style="background:linear-gradient(135deg,#4ecdc422,#4ecdc444)">🇰🇷<span class="hood-badge">Food Paradise</span></div><div class="hood-body"><h3 class="hood-name">Koreatown</h3><p class="hood-desc">24/7 BBQ, karaoke bars, and authentic Korean cuisine. One of LA's most vibrant neighborhoods — locals eat here, not just tourists.</p><div class="hood-tags"><span class="tag">Food</span><span class="tag">Nightlife</span><span class="tag">Culture</span><span class="tag">Shopping</span></div></div></div>
+<div class="hood-card"><div class="hood-img" style="background:linear-gradient(135deg,#45b7d122,#45b7d144)">🎨<span class="hood-badge">Art Scene</span></div><div class="hood-body"><h3 class="hood-name">Arts District</h3><p class="hood-desc">Converted warehouses, world-class murals, trendy coffee shops, and the best brunch spots. LA's creative heartbeat.</p><div class="hood-tags"><span class="tag">Art</span><span class="tag">Coffee</span><span class="tag">Galleries</span><span class="tag">Brunch</span></div></div></div>
+<div class="hood-card"><div class="hood-img" style="background:linear-gradient(135deg,#96ceb422,#96ceb444)">🎵<span class="hood-badge">Cultural Hub</span></div><div class="hood-body"><h3 class="hood-name">Leimert Park</h3><p class="hood-desc">The cultural heart of Black LA — live jazz, African art galleries, and authentic soul food. History and soul on every corner.</p><div class="hood-tags"><span class="tag">Jazz</span><span class="tag">Culture</span><span class="tag">Soul Food</span><span class="tag">Art</span></div></div></div>
+<div class="hood-card"><div class="hood-img" style="background:linear-gradient(135deg,#ffd93d22,#ffd93d44)">🌿<span class="hood-badge">Local Fave</span></div><div class="hood-body"><h3 class="hood-name">Echo Park</h3><p class="hood-desc">The lake, the lotus flowers in summer, indie coffee shops and vintage stores. Bohemian LA at its finest.</p><div class="hood-tags"><span class="tag">Park</span><span class="tag">Vintage</span><span class="tag">Coffee</span><span class="tag">Views</span></div></div></div>
+<div class="hood-card"><div class="hood-img" style="background:linear-gradient(135deg,#a8e6cf22,#a8e6cf44)">🏪<span class="hood-badge">Foodie Central</span></div><div class="hood-body"><h3 class="hood-name">Grand Central Market</h3><p class="hood-desc">DTLA's 100-year-old food hall — 30+ vendors serving everything from Filipino kare-kare to Mexican tacos to ramen.</p><div class="hood-tags"><span class="tag">Food Hall</span><span class="tag">Historic</span><span class="tag">Downtown</span><span class="tag">Markets</span></div></div></div>
+<div class="hood-card"><div class="hood-img" style="background:linear-gradient(135deg,#c3a6ff22,#c3a6ff44)">⭐<span class="hood-badge">Classic LA</span></div><div class="hood-body"><h3 class="hood-name">Hollywood</h3><p class="hood-desc">The Walk of Fame, TCL Chinese Theatre, Griffith Observatory views. Tourist central, yes — but essential LA.</p><div class="hood-tags"><span class="tag">Iconic</span><span class="tag">Entertainment</span><span class="tag">Views</span><span class="tag">History</span></div></div></div>
+<div class="hood-card"><div class="hood-img" style="background:linear-gradient(135deg,#ff9a9e22,#ff9a9e44)">🌊<span class="hood-badge">Beach Life</span></div><div class="hood-body"><h3 class="hood-name">Santa Monica</h3><p class="hood-desc">The pier, Third Street Promenade, and the best sunset in California. The quintessential end of Route 66.</p><div class="hood-tags"><span class="tag">Beach</span><span class="tag">Shopping</span><span class="tag">Pier</span><span class="tag">Sunsets</span></div></div></div>
+<div class="hood-card"><div class="hood-img" style="background:linear-gradient(135deg,#fce4ec22,#fce4ec44)">🌮<span class="hood-badge">Authentic Mexico</span></div><div class="hood-body"><h3 class="hood-name">Boyle Heights</h3><p class="hood-desc">The best tacos and Mexican food in all of LA. Family-run taquerias, fresh tortillas, and real community flavor.</p><div class="hood-tags"><span class="tag">Mexican Food</span><span class="tag">Culture</span><span class="tag">Historic</span><span class="tag">Markets</span></div></div></div>
+</div>
+</div>
+</section>
+<!-- OLYMPIC VENUES -->
+<section class="venues-section" id="venues">
+<div class="container">
+<div class="section-header">
+<span class="section-label">LA 2028 Olympics</span>
+<h2 class="section-title">Olympic Venues Guide</h2>
+<p class="section-sub">All 13 LA28 venues — how to get there, what's nearby, and insider tips for each sport.</p>
+</div>
+<div class="venues-grid">
+<div class="venue-card"><div class="venue-header"><div class="venue-sport">🏈</div><div class="venue-name">SoFi Stadium</div><div class="venue-location">📍 Inglewood, CA</div></div><div class="venue-body"><div class="venue-info"><span class="info-chip">🏅 Athletics Opening Ceremony</span><span class="info-chip">🏈 Football</span><span class="info-chip">🎖️70,000 capacity</span></div><p class="venue-transit"><strong>Getting there:</strong> Metro C Line to Inglewood Station. Ride-share to Stadium Dr. Arrive 60+ min early on event days.</p></div></div>
+<div class="venue-card"><div class="venue-header"><div class="venue-sport">🏀</div><div class="venue-name">Crypto.com Arena</div><div class="venue-location">📍 Downtown LA</div></div><div class="venue-body"><div class="venue-info"><span class="info-chip">🏀 Basketball</span><span class="info-chip">🏐 Volleyball</span><span class="info-chip">🎖️20,000 capacity</span></div><p class="venue-transit"><strong>Getting there:</strong> Metro B or D Line to 7th St/Metro Center. DASH B bus. Walking from most DTLA hotels.</p></div></div>
+<div class="venue-card"><div class="venue-header"><div class="venue-sport">🏊</div><div class="venue-name">Long Beach Arena</div><div class="venue-location">📍 Long Beach, CA</div></div><div class="venue-body"><div class="venue-info"><span class="info-chip">🏊 Water Polo</span><span class="info-chip">🤽 Artistic Swimming</span><span class="info-chip">🎖️10,000 capacity</span></div><p class="venue-transit"><strong>Getting there:</strong> Metro A Line to 5th St/Long Beach Station. Aquabus ferry from downtown LB. Free bike share nearby.</p></div></div>
+<div class="venue-card"><div class="venue-header"><div class="venue-sport">🎾</div><div class="venue-name">UCLA Tennis Center</div><div class="venue-location">📍 Westwood, UCLA</div></div><div class="venue-body"><div class="venue-info"><span class="info-chip">🎾 Tennis</span><span class="info-chip">🎖️10,000 capacity</span></div><p class="venue-transit"><strong>Getting there:</strong> Metro E Line to Expo/Sepulveda then Big Blue Bus. UCLA Campus shuttle. Bike via the Expo bike path.</p></div></div>
+<div class="venue-card"><div class="venue-header"><div class="venue-sport">🤸</div><div class="venue-name">Pauley Pavilion</div><div class="venue-location">📍 Westwood, UCLA</div></div><div class="venue-body"><div class="venue-info"><span class="info-chip">🤸 Gymnastics</span><span class="info-chip">🏸 Badminton</span><span class="info-chip">🎖️12,500 capacity</span></div><p class="venue-transit"><strong>Getting there:</strong> Same as UCLA Tennis Center. Multiple events at UCLA campus makes it efficient to attend two sports in one day.</p></div></div>
+<div class="venue-card"><div class="venue-header"><div class="venue-sport">🌊</div><div class="venue-name">LA28 Aquatics Stadium</div><div class="venue-location">📍 Long Beach</div></div><div class="venue-body"><div class="venue-info"><span class="info-chip">🏊 Swimming</span><span class="info-chip">🤽 Diving</span><span class="info-chip">🎖️15,000 capacity</span></div><p class="venue-transit"><strong>Getting there:</strong> Metro A Line direct to Long Beach. Park & Ride lots with shuttle to venue. Plan 90 min from DTLA.</p></div></div>
+<div class="venue-card"><div class="venue-header"><div class="venue-sport">⚽</div><div class="venue-name">Rose Bowl Stadium</div><div class="venue-location">📍 Pasadena, CA</div></div><div class="venue-body"><div class="venue-info"><span class="info-chip">⚽ Football/Soccer</span><span class="info-chip">🎖️92,000 capacity</span></div><p class="venue-transit"><strong>Getting there:</strong> Metro L Line (Gold) to Memorial Park. Event shuttle service runs every 10 min. Arrive by train to avoid parking nightmare.</p></div></div>
+<div class="venue-card"><div class="venue-header"><div class="venue-sport">🚣</div><div class="venue-name">Lake Perris</div><div class="venue-location">📍 Perris, Riverside County</div></div><div class="venue-body"><div class="venue-info"><span class="info-chip">🚣 Rowing</span><span class="info-chip">🛶 Canoe/Kayak</span><span class="info-chip">🎖️Outdoor venue</span></div><p class="venue-transit"><strong>Getting there:</strong> Metrolink from LAUPT to Perris Valley. Event-day shuttle service. 60-90 min from downtown LA. Beautiful mountain backdrop.</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- ITINERARY BUILDER -->
+<section class="itinerary-section" id="planner">
+<div class="container">
+<div class="section-header">
+<span class="section-label">Plan Your Trip</span>
+<h2 class="section-title">Build Your Perfect LA Itinerary</h2>
+<p class="section-sub">Tell us when you're visiting and what you love — get a personalized day-by-day plan.</p>
+</div>
+<div class="builder-grid">
+<div class="builder-form">
+<div class="form-group"><label class="form-label">📅 Arrival Date</label><input type="date" class="form-input" id="arrivalDate" min="2028-07-14" max="2028-08-31"></div>
+<div class="form-group"><label class="form-label">📅 Departure Date</label><input type="date" class="form-input" id="departureDate" min="2028-07-15" max="2028-09-05"></div>
+<div class="form-group"><label class="form-label">🏨 Where are you staying?</label><select class="form-select" id="stayArea"><option value="">Select your area...</option><option>Downtown LA (DTLA)</option><option>Santa Monica / Venice</option><option>Hollywood / Los Feliz</option><option>Beverly Hills / Westside</option><option>Inglewood (near SoFi)</option><option>Long Beach</option><option>Pasadena</option></select></div>
+<div class="form-group"><label class="form-label">🌍 Traveling from?</label><input type="text" class="form-input" id="origin" placeholder="e.g. London, Tokyo, New York..."></div>
+<div class="form-group"><label class="form-label">🎯 Interests (select all that apply)</label><div class="interests-grid">
+<button class="interest-btn" onclick="this.classList.toggle('selected')">🏟️ Olympics</button>
+<button class="interest-btn" onclick="this.classList.toggle('selected')">🍽️ Food</button>
+<button class="interest-btn" onclick="this.classList.toggle('selected')">🎨 Art</button>
+<button class="interest-btn" onclick="this.classList.toggle('selected')">🏖️ Beach</button>
+<button class="interest-btn" onclick="this.classList.toggle('selected')">🎵 Music</button>
+<button class="interest-btn" onclick="this.classList.toggle('selected')">🛍️ Shopping</button>
+<button class="interest-btn" onclick="this.classList.toggle('selected')">🌿 Nature</button>
+<button class="interest-btn" onclick="this.classList.toggle('selected')">📸 Photos</button>
+<button class="interest-btn" onclick="this.classList.toggle('selected')">🎬 Film</button>
+</div></div>
+<button class="btn btn-primary" style="width:100%" onclick="buildItinerary()">✨ Generate My Itinerary</button>
+</div>
+<div class="builder-result" id="itineraryResult">
+<div class="result-placeholder">
+<span class="icon">🗺️</span>
+<p>Fill in your details and click "Generate My Itinerary" to get a personalized LA plan based on your interests and dates.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- RESTAURANTS -->
+<section class="restaurants-section" id="restaurants">
+<div class="container">
+<div class="section-header">
+<span class="section-label">Eat Local</span>
+<h2 class="section-title">Where Angelenos Actually Eat</h2>
+<p class="section-sub">Skip the tourist traps. These are the restaurants locals love and will send their visiting friends to.</p>
+</div>
+<div class="restaurants-grid">
+<div class="restaurant-card"><div class="restaurant-header"><span class="restaurant-name">Roscoe's House of Chicken & Waffles</span><span class="restaurant-price">$$</span></div><span class="restaurant-cuisine">Soul Food / American Icon</span><p class="restaurant-desc">An LA institution since 1975. Crispy fried chicken on a golden waffle with butter and syrup — it shouldn't work but it absolutely does. Celebrity spotting included.</p><div class="restaurant-meta"><span class="meta-item">📍 Multiple locations</span><span class="meta-item">⏰ 8am–midnight</span><span class="meta-item">🅿️ Parking available</span></div></div>
+<div class="restaurant-card"><div class="restaurant-header"><span class="restaurant-name">Bestia</span><span class="restaurant-price">$$$</span></div><span class="restaurant-cuisine">Italian / Arts District</span><p class="restaurant-desc">The best Italian restaurant in LA, hands down. House-made pasta, wood-fired meats, and a wine list that won't quit. Book 4-6 weeks in advance — seriously.</p><div class="restaurant-meta"><span class="meta-item">📍 Arts District, DTLA</span><span class="meta-item">⏰ Dinner only</span><span class="meta-item">📞 Reservation required</span></div></div>
+<div class="restaurant-card"><div class="restaurant-header"><span class="restaurant-name">Buka Nigerian Restaurant</span><span class="restaurant-price">$$</span></div><span class="restaurant-cuisine">Nigerian / West African</span><p class="restaurant-desc">Authentic Nigerian comfort food in the heart of LA. Jollof rice, suya, egusi soup — a taste of home for West African visitors and an adventure for everyone else.</p><div class="restaurant-meta"><span class="meta-item">📍 Mid-Wilshire</span><span class="meta-item">⏰ Lunch & Dinner</span><span class="meta-item">🌍 West African community</span></div></div>
+<div class="restaurant-card"><div class="restaurant-header"><span class="restaurant-name">Grand Central Market</span><span class="restaurant-price">$</span></div><span class="restaurant-cuisine">Food Hall / Historic</span><p class="restaurant-desc">100 years old and still LA's best food hall. 30+ vendors under one roof — Eggslut, Tacos Tumbras, Sticky Rice — come hungry, stay for hours.</p><div class="restaurant-meta"><span class="meta-item">📍 Broadway, Downtown LA</span><span class="meta-item">⏰ 8am–9pm daily</span><span class="meta-item">🚇 Metro accessible</span></div></div>
+<div class="restaurant-card"><div class="restaurant-header"><span class="restaurant-name">Mariscos 4 Vientos</span><span class="restaurant-price">$$</span></div><span class="restaurant-cuisine">Mexican Seafood</span><p class="restaurant-desc">The best fish tacos in LA — shrimp, aguachile, tostadas with ceviche that will ruin all other Mexican seafood for you. Always a line, always worth it.</p><div class="restaurant-meta"><span class="meta-item">📍 East LA</span><span class="meta-item">⏰ 10am–7pm</span><span class="meta-item">💰 Cash preferred</span></div></div>
+<div class="restaurant-card"><div class="restaurant-header"><span class="restaurant-name">Night + Market Song</span><span class="restaurant-price">$$</span></div><span class="restaurant-cuisine">Thai / Silverlake</span><p class="restaurant-desc">Northern Thai food so good and spicy it has a cult following. Fermented pork sausages, laab, and boat noodles — for the adventurous eater in your group.</p><div class="restaurant-meta"><span class="meta-item">📍 Silverlake</span><span class="meta-item">⏰ Dinner daily, Lunch weekends</span><span class="meta-item">🔥 Very spicy options</span></div></div>
+</div>
+</div>
+</section>
+
+<!-- TRANSPORT -->
+<section class="transport-section" id="transport">
+<div class="container">
+<div class="section-header">
+<span class="section-label">Getting Around</span>
+<h2 class="section-title">Navigate LA Like a Pro</h2>
+<p class="section-sub">Yes, you can get around LA without a car. Here's everything you need to know.</p>
+</div>
+<div class="transport-grid">
+<div class="transport-card"><span class="transport-icon">🚇</span><h3 class="transport-name">Metro Rail</h3><p class="transport-desc">LA's growing rail network connects DTLA to Santa Monica (E Line), Long Beach (A Line), Pasadena (L Line), and more Olympic venues.</p><div class="transport-tip">💡 Get a TAP card ($2 for card, $1.75/ride). Unlimited day pass is $7.</div></div>
+<div class="transport-card"><span class="transport-icon">🚌</span><h3 class="transport-name">Metro Bus</h3><p class="transport-desc">700+ bus routes cover every corner of LA. Rapid lines skip stops for faster service. Same TAP card as rail.</p><div class="transport-tip">💡 Use the Metro app for real-time arrivals. Google Maps Metro integration works great too.</div></div>
+<div class="transport-card"><span class="transport-icon">🚲</span><h3 class="transport-name">Metro Bike</h3><p class="transport-desc">Bikeshare stations near most Metro stops. Electric bikes available. Great for beach routes, Arts District, and Griffith Park areas.</p><div class="transport-tip">💡 First 30 min free with TAP card. Electric bikes are $1.70/30 min after free period.</div></div>
+<div class="transport-card"><span class="transport-icon">🚗</span><h3 class="transport-name">Rideshare (Uber/Lyft)</h3><p class="transport-desc">Essential for neighborhoods not on Metro. Surge pricing during events — download both apps and compare. Budget $15-25 for most cross-city trips.</p><div class="transport-tip">💡 Order rideshare to nearby pick-up points, not right at venues. Beat the post-event surge by leaving 20 min before end.</div></div>
+<div class="transport-card"><span class="transport-icon">🚆</span><h3 class="transport-name">Metrolink</h3><p class="transport-desc">Regional rail connects LA to Pasadena, Long Beach, Riverside (for Lake Perris), and beyond. Essential for day trips and outer venues.</p><div class="transport-tip">💡 Olympic Games Metrolink passes will be available — great value for multi-day visitors.</div></div>
+<div class="transport-card"><span class="transport-icon">🦶</span><h3 class="transport-name">Walk + Transit Combos</h3><p class="transport-desc">Santa Monica, Venice, DTLA, and Koreatown are all very walkable. Walk to transit, not to your final destination in LA.</p><div class="transport-tip">💡 AllTrails for walking trails, Google Maps for transit. Download offline maps before big event days.</div></div>
+</div>
+</div>
+</section>
+<!-- DAY TRIPS -->
+<section class="daytrips-section" id="daytrips">
+<div class="container">
+<div class="section-header">
+<span class="section-label">Beyond LA</span>
+<h2 class="section-title">Regional Day Trips</h2>
+<p class="section-sub">Olympic tours are being packaged with these destinations — explore California while you're here.</p>
+</div>
+<div class="daytrips-grid">
+<div class="trip-card"><div class="trip-header"><span class="trip-emoji">🌊</span><div class="trip-name">San Diego</div><div class="trip-distance">🚗 2 hours south • Amtrak Pacific Surfliner available</div></div><div class="trip-body"><p class="trip-desc">America's finest city — Balboa Park, the USS Midway, Old Town, incredible burritos, and Coronado Island. A full day trip or overnight extension.</p><div class="trip-highlights"><span class="highlight-tag">Zoo</span><span class="highlight-tag">Beaches</span><span class="highlight-tag">Old Town</span><span class="highlight-tag">Craft Beer</span><span class="highlight-tag">Balboa Park</span></div></div></div>
+<div class="trip-card"><div class="trip-header"><span class="trip-emoji">🌸</span><div class="trip-name">Santa Barbara</div><div class="trip-distance">🚗 1.5 hours north • Amtrak Pacific Surfliner available</div></div><div class="trip-body"><p class="trip-desc">The American Riviera — red tile roofs, State Street wine bars, stunning beaches, and the Santa Ynez wine country just 30 minutes inland.</p><div class="trip-highlights"><span class="highlight-tag">Wine Country</span><span class="highlight-tag">Spanish Architecture</span><span class="highlight-tag">Beaches</span><span class="highlight-tag">Hiking</span></div></div></div>
+<div class="trip-card"><div class="trip-header"><span class="trip-emoji">🌴</span><div class="trip-name">Palm Springs</div><div class="trip-distance">🚗 2 hours east • Via I-10</div></div><div class="trip-body"><p class="trip-desc">Mid-century modern architecture, desert hiking, the Palm Springs Aerial Tramway to alpine forests, and world-class spa resorts.</p><div class="trip-highlights"><span class="highlight-tag">Desert</span><span class="highlight-tag">Architecture</span><span class="highlight-tag">Hiking</span><span class="highlight-tag">Pools</span><span class="highlight-tag">Tramway</span></div></div></div>
+<div class="trip-card"><div class="trip-header"><span class="trip-emoji">🌲</span><div class="trip-name">Joshua Tree</div><div class="trip-distance">🚗 2.5 hours east • Via I-10</div></div><div class="trip-body"><p class="trip-desc">One of America's most otherworldly national parks. Weird desert trees, giant rock formations, and the most spectacular stargazing you'll ever experience.</p><div class="trip-highlights"><span class="highlight-tag">National Park</span><span class="highlight-tag">Rock Climbing</span><span class="highlight-tag">Stargazing</span><span class="highlight-tag">Photography</span></div></div></div>
+<div class="trip-card"><div class="trip-header"><span class="trip-emoji">🍷</span><div class="trip-name">Napa Valley</div><div class="trip-distance">✈️ 1 hr flight or 6 hrs drive north</div></div><div class="trip-body"><p class="trip-desc">The world's most famous wine region. For a 2-3 day extension — Opus One, Inglenook, the Oxbow Public Market, and Michelin-star restaurants in Yountville.</p><div class="trip-highlights"><span class="highlight-tag">Wine</span><span class="highlight-tag">Fine Dining</span><span class="highlight-tag">Cycling</span><span class="highlight-tag">Hot Air Balloons</span></div></div></div>
+<div class="trip-card"><div class="trip-header"><span class="trip-emoji">🏔️</span><div class="trip-name">Big Bear Lake</div><div class="trip-distance">🚗 2 hours east (mountain roads)</div></div><div class="trip-body"><p class="trip-desc">Mountain escape from the heat — hiking, kayaking, mountain biking in summer. A 7,000ft elevation escape that feels worlds away from LA.</p><div class="trip-highlights"><span class="highlight-tag">Mountains</span><span class="highlight-tag">Hiking</span><span class="highlight-tag">Lake</span><span class="highlight-tag">Cool Weather</span></div></div></div>
+</div>
+</div>
+</section>
+
+<!-- INTERNATIONAL VISITORS -->
+<section class="international-section" id="international">
+<div class="container">
+<div class="section-header">
+<span class="section-label">International Visitors</span>
+<h2 class="section-title">Welcome to LA — from Everywhere</h2>
+<p class="section-sub">We know you're coming from all over the world. Here's what you need to know about visiting LA.</p>
+</div>
+<div class="intl-grid">
+<div class="intl-card"><span class="intl-flag">🇬🇧</span><div class="intl-country">United Kingdom</div><div class="intl-info">No visa required (ESTA). 10 hr flight from London. Use dollars. Drive on the right. LA weather is much better than home — pack sunscreen.</div></div>
+<div class="intl-card"><span class="intl-flag">🇯🇵</span><div class="intl-country">Japan</div><div class="intl-info">No visa required (ESTA). 11 hr flight from Tokyo. Little Tokyo in DTLA will feel like home. LA has one of the largest Japanese-American communities in the world.</div></div>
+<div class="intl-card"><span class="intl-flag">🇩🇪</span><div class="intl-country">Germany</div><div class="intl-info">No visa required (ESTA). 11 hr flight from Frankfurt. Strong German community in LA. LA is on the same longitude as Berlin in some ways — lots of arts and culture.</div></div>
+<div class="intl-card"><span class="intl-flag">🇧🇷</span><div class="intl-country">Brazil</div><div class="intl-info">US tourist visa required. 12-14 hr flight from São Paulo. Huge Brazilian community in LA. Portuguese speakers will find their people here easily.</div></div>
+<div class="intl-card"><span class="intl-flag">🇨🇳</span><div class="intl-country">China</div><div class="intl-info">US tourist visa required. Direct flights from major Chinese cities. San Gabriel Valley (SGV) has the best Chinese food outside China — don't miss it.</div></div>
+<div class="intl-card"><span class="intl-flag">🇳🇬</span><div class="intl-country">Nigeria</div><div class="intl-info">US tourist visa required. 22+ hr journey. Growing Nigerian community in LA. Leimert Park and Inglewood have fantastic African dining and culture.</div></div>
+<div class="intl-card"><span class="intl-flag">🇮🇳</span><div class="intl-country">India</div><div class="intl-info">US tourist visa required. Artesia ("Little India") is 30 min from DTLA. Incredible Indian food corridor. Cricket fans: yes, there will be cricket at LA28.</div></div>
+<div class="intl-card"><span class="intl-flag">🇦🇺</span><div class="intl-country">Australia</div><div class="intl-info">No visa required (ESTA). 15 hr flight from Sydney. You'll feel at home — beaches, outdoor culture, and people who understand your humor.</div></div>
+</div>
+<div class="welcome-banner">
+<h3>🌍 A Message to All International Visitors</h3>
+<p>Despite recent headlines about US travel, Los Angeles is one of the most welcoming, diverse cities in the world. Over 140 languages are spoken here. You will find your community, your food, and your culture in LA. We're thrilled to host the world in 2028. <strong>You are welcome here.</strong></p>
+</div>
+</div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section" id="newsletter">
+<div class="container">
+<div class="newsletter-content">
+<h2>🏆 Get the LA Insider Update</h2>
+<p>New neighborhood guides, restaurant recommendations, Olympic venue updates, and exclusive content — delivered to your inbox.</p>
+<form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+<input type="email" class="newsletter-input" placeholder="your@email.com" required id="emailInput">
+<button type="submit" class="newsletter-btn">Subscribe Free →</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="brand-logo">The LA <span>City Guide</span></div>
+<p class="footer-desc">Your insider guide to Los Angeles — locals writing for visitors since 2026. Building the definitive LA resource for the 2028 Olympics and beyond.</p>
+</div>
+<div class="footer-col"><h4>Explore LA</h4><ul class="footer-links"><li><a href="#neighborhoods">Neighborhoods</a></li><li><a href="#venues">Olympic Venues</a></li><li><a href="#restaurants">Restaurants</a></li><li><a href="#daytrips">Day Trips</a></li></ul></div>
+<div class="footer-col"><h4>Plan Your Trip</h4><ul class="footer-links"><li><a href="#planner">Itinerary Builder</a></li><li><a href="#transport">Getting Around</a></li><li><a href="#international">International Info</a></li></ul></div>
+<div class="footer-col"><h4>About</h4><ul class="footer-links"><li><a href="#">About Us</a></li><li><a href="#">Advertise</a></li><li><a href="#">Privacy Policy</a></li><li><a href="https://github.com/unmountapp/thelacityguide.com">GitHub</a></li></ul></div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 The LA City Guide. Built with ❤️ for LA 2028.</p>
+<div class="footer-badges"><span class="badge-item">🏛️ thelacityguide.com</span><span class="badge-item">🏆 LA 2028 Ready</span></div>
+</div>
+</footer>
+
+<script>
+// Itinerary Builder
+function buildItinerary() {
+  var arrival = document.getElementById("arrivalDate").value;
+  var departure = document.getElementById("departureDate").value;
+  var stayArea = document.getElementById("stayArea").value;
+  var origin = document.getElementById("origin").value;
+  var interests = Array.from(document.querySelectorAll(".interest-btn.selected")).map(b => b.textContent.trim());
+  var result = document.getElementById("itineraryResult");
+
+  if (!arrival || !departure) {
+    result.innerHTML = "<div style='text-align:center;padding:2rem;color:#ff6b6b'>Please select your arrival and departure dates first.</div>";
+    return;
+  }
+
+  var days = Math.ceil((new Date(departure) - new Date(arrival)) / (1000*60*60*24));
+  if (days < 1) { result.innerHTML = "<div style='text-align:center;padding:2rem;color:#ff6b6b'>Departure must be after arrival.</div>"; return; }
+
+  var plans = {
+    day1: [
+      { time: "9:00 AM", name: "Arrive & Check In", note: stayArea || "Get settled in your hotel" },
+      { time: "11:00 AM", name: "Grand Central Market", note: "Lunch — try Eggslut breakfast or Tacos Tumbras" },
+      { time: "2:00 PM", name: "Arts District Walk", note: "Street murals, Blue Bottle Coffee, Row DTLA" },
+      { time: "5:00 PM", name: "Griffith Observatory", note: "Sunset views — best panorama in LA" },
+      { time: "7:30 PM", name: "Dinner in Los Feliz", note: "Dinner at Alcove or HomeState" }
+    ],
+    day2: [
+      { time: "8:00 AM", name: "Venice Beach Boardwalk", note: "Arrive early before crowds. Muscle Beach." },
+      { time: "10:30 AM", name: "Abbot Kinney Blvd", note: "Coffee at Gjusta, browse boutiques" },
+      { time: "1:00 PM", name: "Santa Monica Pier & 3rd St", note: "Lunch at Santa Monica Place" },
+      { time: "4:00 PM", name: "Olympic Venue Check", note: interests.includes("🏟️ Olympics") ? "SoFi Stadium area, Inglewood" : "Getty Center visit" },
+      { time: "7:00 PM", name: "Koreatown Dinner", note: "Korean BBQ at Park's BBQ or Genwa" }
+    ],
+    day3: [
+      { time: "9:00 AM", name: "Runyon Canyon Hike", note: "Easy 3-mile trail, Hollywood Hills views" },
+      { time: "11:30 AM", name: "Hollywood Walk of Fame", note: "TCL Chinese Theatre, Dolby Theatre" },
+      { time: "2:00 PM", name: "The Grove / Farmers Market", note: "Afternoon shopping and people-watching" },
+      { time: "5:00 PM", name: "Rodeo Drive / Beverly Hills", note: "Window shopping in the golden mile" },
+      { time: "7:30 PM", name: "Bestia", note: "Best Italian in LA — book in advance!" }
+    ]
+  };
+
+  var html = "";
+  for (var d = 0; d < Math.min(days, 3); d++) {
+    var dayKey = "day" + (d + 1);
+    var date = new Date(arrival);
+    date.setDate(date.getDate() + d);
+    var dateStr = date.toLocaleDateString("en-US", { weekday:"long", month:"long", day:"numeric", year:"numeric" });
+    html += "<div class='itinerary-day'><div class='day-header'><div class='day-number'>" + (d+1) + "</div><div class='day-title'>Day " + (d+1) + " — " + dateStr + "</div></div>";
+    (plans[dayKey] || plans.day1).forEach(function(act) {
+      html += "<div class='activity'><div class='activity-time'>" + act.time + "</div><div class='activity-details'><div class='activity-name'>" + act.name + "</div><div class='activity-note'>" + act.note + "</div></div></div>";
+    });
+    html += "</div>";
+  }
+
+  if (days > 3) {
+    html += "<div style='text-align:center;padding:1rem;background:rgba(212,175,55,0.15);border-radius:10px;border:1px solid rgba(212,175,55,0.3);font-size:0.9rem;color:rgba(255,255,255,0.8)'><strong style='color:var(--gold)'>Days 4-" + days + "</strong>: Check back soon for extended itineraries including Day Trips to San Diego, Palm Springs, and Santa Barbara!</div>";
+  }
+
+  result.innerHTML = html;
+}
+
+function handleNewsletterSubmit(e) {
+  e.preventDefault();
+  var email = document.getElementById("emailInput").value;
+  var form = e.target;
+  form.innerHTML = "<p style='text-align:center;font-weight:700;color:var(--dark)'>✅ You're on the list! Welcome to The LA City Guide community.</p>";
+}
+
+// Smooth scroll navbar active state
+window.addEventListener("scroll", function() {
+  var nav = document.querySelector(".navbar");
+  if (window.scrollY > 50) {
+    nav.style.background = "rgba(0,5,20,0.98)";
+  } else {
+    nav.style.background = "rgba(0,10,30,0.95)";
+  }
+});
+</script>
+</body>
+</html>
