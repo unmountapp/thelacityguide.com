@@ -9,7 +9,7 @@
 <meta name="author" content="The LA City Guide">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://thelacityguide.com/">
-<meta property="og:type" content="website">
+<meta property="og:type" content="website">h
 <meta property="og:url" content="https://thelacityguide.com/">
 <meta property="og:title" content="The LA City Guide | #1 Los Angeles Olympics 2028 Travel Guide">
 <meta property="og:description" content="Your ultimate insider guide to Los Angeles for the 2028 Olympic Games. Neighborhoods, venues, restaurants, transport, itineraries — written by LA locals.">
@@ -675,12 +675,12 @@ footer{background:#060e1e;color:#aac;padding:3rem 2rem}
 // ---- PLACES DATABASE ----
 const PLACES = [
   // Olympic Venues
-  {id:'v1',name:'SoFi Stadium',icon:'🏈',cat:'venue',lat:33.9535,lng:-118.3392,tags:['Athletics','Opening'],desc:'Opening Ceremony & Athletics. LA's crown jewel stadium seats 70,000+ fans.',address:'1001 Stadium Dr, Inglewood, CA'},
-  {id:'v2',name:'Crypto.com Arena',icon:'🏀',cat:'venue',lat:34.0430,lng:-118.2673,tags:['Basketball'],desc:'Basketball Finals. Home of the Lakers, now hosting Olympic basketball finals.',address:'1111 S Figueroa St, Los Angeles, CA'},
+  {id:'v1',name:'SoFi Stadium',icon:'🏈',cat:'venue',lat:33.9535,lng:-118.3392,tags:['Athletics','Opening'],desc:"Opening Ceremony & Athletics. LA's crown jewel stadium seats 70,000+ fans.",address:'1001 Stadium Dr, Inglewood, CA'},
+  {id:'v2',name:'Crypto.com Arena',icon:'🏀',cat:'venue',lat:34.0430,lng:-118.2673,tags:['Basketball'],desc:"Basketball Finals. Home of the Lakers, now hosting Olympic basketball finals.",address:'1111 S Figueroa St, Los Angeles, CA'},
   {id:'v3',name:'USC Aquatics Center',icon:'🏊',cat:'venue',lat:34.0224,lng:-118.2851,tags:['Swimming','Diving'],desc:'Swimming & Diving. State-of-the-art aquatics facility rebuilt for Olympic glory.',address:'3501 Watt Way, Los Angeles, CA'},
-  {id:'v4',name:'Pauley Pavilion UCLA',icon:'🤸',cat:'venue',lat:34.0718,lng:-118.4488,tags:['Gymnastics'],desc:'Gymnastics arena. UCLA's legendary arena, home to 11 NCAA championships.',address:'301 Westwood Plz, Los Angeles, CA'},
-  {id:'v5',name:'Rose Bowl Stadium',icon:'⚽',cat:'venue',lat:34.1613,lng:-118.1677,tags:['Soccer'],desc:'Soccer. Pasadena's iconic venue set against the San Gabriel Mountains.',address:'1001 Rose Bowl Dr, Pasadena, CA'},
-  {id:'v6',name:'Long Beach Arena',icon:'🏐',cat:'venue',lat:33.7616,lng:-118.1956,tags:['Beach Volleyball'],desc:'Beach Volleyball. Sun, sand, and the world's best players in the ultimate setting.',address:'300 E Ocean Blvd, Long Beach, CA'},
+  {id:'v4',name:'Pauley Pavilion UCLA',icon:'🤸',cat:'venue',lat:34.0718,lng:-118.4488,tags:['Gymnastics'],desc:"Gymnastics arena. UCLA's legendary arena, home to 11 NCAA championships.",address:'301 Westwood Plz, Los Angeles, CA'},
+  {id:'v5',name:'Rose Bowl Stadium',icon:'⚽',cat:'venue',lat:34.1613,lng:-118.1677,tags:['Soccer'],desc:"Soccer. Pasadena's iconic venue set against the San Gabriel Mountains.",address:'1001 Rose Bowl Dr, Pasadena, CA'},
+  {id:'v6',name:'Long Beach Arena',icon:'🏐',cat:'venue',lat:33.7616,lng:-118.1956,tags:['Beach Volleyball'],desc:"Beach Volleyball. Sun, sand, and the world's best players in the ultimate setting.",address:'300 E Ocean Blvd, Long Beach, CA'},
   // Neighborhoods
   {id:'n1',name:'Hollywood',icon:'🌟',cat:'neighborhood',lat:34.0928,lng:-118.3287,tags:['Iconic','Sightseeing'],desc:'Walk of Fame, TCL Chinese Theatre, Griffith Observatory views, and the Hollywood Sign.',address:'Hollywood Blvd, Hollywood, CA'},
   {id:'n2',name:'Venice Beach',icon:'🏖️',cat:'neighborhood',lat:33.9850,lng:-118.4695,tags:['Beach','Art'],desc:'Muscle Beach, the famous boardwalk, skate parks, street performers, and the best sunsets.',address:'Venice Boardwalk, Venice, CA'},
@@ -691,17 +691,17 @@ const PLACES = [
   {id:'n7',name:'Koreatown',icon:'🍜',cat:'neighborhood',lat:34.0586,lng:-118.3002,tags:['Food','Nightlife'],desc:'24-hour Korean BBQ, legendary karaoke bars, and the most vibrant nightlife in the city.',address:'Wilshire Blvd & Western Ave, Los Angeles, CA'},
   {id:'n8',name:'Malibu Beach',icon:'🌊',cat:'neighborhood',lat:34.0259,lng:-118.7798,tags:['Beach','Scenic'],desc:'25 miles of pristine coastline. Celebrity homes, world-class surfing, and PCH drives.',address:'Pacific Coast Hwy, Malibu, CA'},
   // Food
-  {id:'f1',name:'Grand Central Market',icon:'🥘',cat:'food',lat:34.0506,lng:-118.2493,tags:['Food Hall','Historic'],desc:'LA's legendary 100-year-old food hall with 30+ vendors. Eggslut, Wexler's Deli, and more.',address:'317 S Broadway, Los Angeles, CA'},
-  {id:'f2',name:'Nobu Malibu',icon:'🍱',cat:'food',lat:34.0354,lng:-118.6894,tags:['Fine Dining','Celebrity'],desc:'Celebrity hotspot over the Pacific. Black cod miso and yellowtail jalapeño are LA institutions.',address:'22706 Pacific Coast Hwy, Malibu, CA'},
-  {id:'f3',name:'Howlin Ray's (Chinatown)',icon:'🍗',cat:'food',lat:34.0622,lng:-118.2401,tags:['Hot Chicken','Iconic'],desc:'The hot chicken shop that broke LA. Lines around the block. Order "Howlin'" if you dare.',address:'727 N Broadway, Los Angeles, CA'},
-  {id:'f4',name:'Leo's Tacos Truck',icon:'🌮',cat:'food',lat:34.0532,lng:-118.2915,tags:['Street Food','Late Night'],desc:'Best al pastor tacos in LA. Follow the truck. Cash only. Worth every penny.',address:'Various locations, Los Angeles, CA'},
-  {id:'f5',name:'Gjusta (Venice)',icon:'☕',cat:'food',lat:33.9887,lng:-118.4664,tags:['Bakery','Brunch'],desc:'Venice's beloved all-day bakery and deli. Incredible pastries, sandwiches, and coffee.',address:'320 Sunset Ave, Venice, CA'},
+  {id:'f1',name:'Grand Central Market',icon:'🥘',cat:'food',lat:34.0506,lng:-118.2493,tags:['Food Hall','Historic'],desc:"LA's legendary 100-year-old food hall with 30+ vendors. Eggslut, Wexler's Deli, and more.",address:'317 S Broadway, Los Angeles, CA'},
+  {id:'f2',name:'Nobu Malibu',icon:'🍱',cat:'food',lat:34.0354,lng:-118.6894,tags:['Fine Dining','Celebrity'],desc:"Celebrity hotspot over the Pacific. Black cod miso and yellowtail jalapeno are LA icons.",address:'22706 Pacific Coast Hwy, Malibu, CA'},
+  {id:'f3',name:"Howlin Ray's (Chinatown)",icon:'🍗',cat:'food',lat:34.0622,lng:-118.2401,tags:['Hot Chicken','Iconic'],desc:"The hot chicken shop that broke LA. Lines around the block. Order Howlin Hot if you dare.",address:'727 N Broadway, Los Angeles, CA'},
+  {id:'f4',name:"Leo's Tacos Truck",icon:'🌮',cat:'food',lat:34.0532,lng:-118.2915,tags:['Street Food','Late Night'],desc:"Best al pastor tacos in LA. Follow the truck. Cash only. Worth every penny.",address:'Various locations, Los Angeles, CA'},
+  {id:'f5',name:'Gjusta (Venice)',icon:'☕',cat:'food',lat:33.9887,lng:-118.4664,tags:['Bakery','Brunch'],desc:"Venice's beloved all-day bakery and deli. Incredible pastries, sandwiches, and coffee.",address:'320 Sunset Ave, Venice, CA'},
   // Activities
   {id:'a1',name:'Universal Studios Hollywood',icon:'🎬',cat:'activity',lat:34.1381,lng:-118.3534,tags:['Theme Park','Entertainment'],desc:'World-famous studio tour and theme park. Jurassic Park, Harry Potter, and Minions.',address:'100 Universal City Plaza, Universal City, CA'},
   {id:'a2',name:'Getty Center',icon:'🎨',cat:'activity',lat:34.0780,lng:-118.4741,tags:['Art','Views'],desc:'Free world-class art museum with stunning architecture and panoramic LA views.',address:'1200 Getty Center Dr, Los Angeles, CA'},
   {id:'a3',name:'LACMA',icon:'🖼️',cat:'activity',lat:34.0639,lng:-118.3590,tags:['Art','Culture'],desc:'LA County Museum of Art. Largest art museum in the western US.',address:'5905 Wilshire Blvd, Los Angeles, CA'},
-  {id:'a4',name:'Runyon Canyon',icon:'🥾',cat:'activity',lat:34.1025,lng:-118.3474,tags:['Hiking','Views'],desc:'Hollywood's beloved hiking trail with epic city views. Dog-friendly. Open sunrise to sunset.',address:'2000 N Fuller Ave, Los Angeles, CA'},
-  {id:'a5',name:'Rodeo Drive Shopping',icon:'💎',cat:'activity',lat:34.0699,lng:-118.3989,tags:['Shopping','Luxury'],desc:'The world's most famous shopping street. Gucci, Prada, Louis Vuitton, and Hermès.',address:'Rodeo Dr, Beverly Hills, CA'},
+  {id:'a4',name:'Runyon Canyon',icon:'🥾',cat:'activity',lat:34.1025,lng:-118.3474,tags:['Hiking','Views'],desc:"Hollywood's beloved hiking trail with epic city views. Dog-friendly. Open sunrise to sunset.",address:'2000 N Fuller Ave, Los Angeles, CA'},
+  {id:'a5',name:'Rodeo Drive Shopping',icon:'💎',cat:'activity',lat:34.0699,lng:-118.3989,tags:['Shopping','Luxury'],desc:"The world's most famous shopping street. Gucci, Prada, Louis Vuitton, and Hermes.",address:'Rodeo Dr, Beverly Hills, CA'},
   // Day Trips
   {id:'d1',name:'Disneyland, Anaheim',icon:'🏰',cat:'daytrip',lat:33.8121,lng:-117.9190,tags:['Theme Park','Family'],desc:'The Happiest Place on Earth, 40 minutes from LA. Two parks, endless magic.',address:'1313 Disneyland Dr, Anaheim, CA'},
   {id:'d2',name:'Santa Barbara',icon:'🍷',cat:'daytrip',lat:34.4208,lng:-119.6982,tags:['Wine','Beach'],desc:'Spanish colonial charm, wine country, and pristine beaches 1.5 hours up the coast.',address:'State St, Santa Barbara, CA'},
@@ -842,7 +842,7 @@ function renderDays() {
     const stopsHTML = stops.length === 0
       ? '<div class="drop-zone" data-day="'+dayIdx+'">Drop attractions here</div>'
       : stops.map((s,si) =>
-          '<div class="itin-stop" data-day="'+dayIdx+'" data-si="'+si+'" onclick="showStopOnMap(''+s.id+'')">' +
+          '<div class="itin-stop" data-day="'+dayIdx+'" data-si="'+si+'" data-stopid="'+s.id+'" onclick="window.itinShowStop(this.dataset.stopid)">' +
           '<div class="stop-num">'+(si+1)+'</div>' +
           '<div style="font-size:1.1rem">'+s.icon+'</div>' +
           '<div class="stop-name">'+s.name+'</div>' +
@@ -883,6 +883,9 @@ function removeStop(e, dayIdx, stopIdx) {
   renderDays();
   updateMapForDay(dayIdx);
 }
+
+// Global wrapper for inline onclick handlers
+window.itinShowStop = function(placeId) { showStopOnMap(placeId); };
 
 function showStopOnMap(placeId) {
   const place = PLACES.find(p => p.id === placeId);
