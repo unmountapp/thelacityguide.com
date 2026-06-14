@@ -95,14 +95,14 @@
   .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 600; }
 
   /* SITE INTRO */
-  .site-intro { background: var(--navy-mid); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); padding: 40px 20px; }
+  .site-intro { background: var(--navy-mid); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); padding: 40px 20px; scroll-margin-top: 60px; }
   .site-intro-inner { max-width: 860px; margin: 0 auto; }
   .site-intro p { color: var(--text-body); font-size: 15px; line-height: 1.8; margin-bottom: 12px; }
   .site-intro p:last-child { margin-bottom: 0; }
   .site-intro strong { color: var(--white); }
 
   /* SECTIONS */
-  section { padding: 60px 20px; }
+  section { padding: 60px 20px; scroll-margin-top: 60px; }
   .section-inner { max-width: 1300px; margin: 0 auto; }
   .section-header { margin-bottom: 32px; }
   .section-header h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--white); margin-bottom: 10px; }
@@ -1510,7 +1510,11 @@
 // ========== SMOOTH NAV ==========
 function smoothNav(id) {
   const el = document.getElementById(id);
-  if (el) { el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  if (el) {
+    const navH = document.querySelector('nav')?.offsetHeight || 60;
+    const top = el.getBoundingClientRect().top + window.scrollY - navH - 8;
+    window.scrollTo({top: top, behavior: 'smooth'});
+  }
   return false;
 }
 
