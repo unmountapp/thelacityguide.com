@@ -313,14 +313,14 @@
   <div class="nav-inner">
     <a href="/" class="nav-logo">🏙️ The <span>LA</span> City Guide</a>
     <div class="nav-links">
-      <a href="#neighborhoods">Neighborhoods</a>
-      <a href="#venues">Olympic Venues</a>
-      <a href="#itinerary">Itinerary Builder</a>
-      <a href="#dining">Dining</a>
-      <a href="#transport">Getting Around</a>
-      <a href="#daytrips">Day Trips</a>
-      <a href="#international">International</a>
-      <a href="#advertise" class="btn-advertise">Advertise</a>
+      <a href="#neighborhoods" onclick="smoothNav('neighborhoods')">Neighborhoods</a>
+      <a href="#venues" onclick="smoothNav('venues')">Olympic Venues</a>
+      <a href="#itinerary" onclick="smoothNav('itinerary')">Itinerary Builder</a>
+      <a href="#dining" onclick="smoothNav('dining')">Dining</a>
+      <a href="#transport" onclick="smoothNav('transport')">Getting Around</a>
+      <a href="#daytrips" onclick="smoothNav('daytrips')">Day Trips</a>
+      <a href="#international" onclick="smoothNav('international')">International</a>
+      <a href="#advertise" class="btn-advertise" onclick="smoothNav('advertise')">Advertise</a>
     </div>
   </div>
 </nav>
@@ -425,8 +425,8 @@
         <div class="card-img">🎭</div>
         <div class="card-body">
           <h3>West Hollywood</h3>
-          <p>The Sunset Strip, live music venues, LGBTQ+ nightlife, high-end boutiques, and some of the best brunch spots in the city. Walkable in the core. Premium hotel prices.</p>
-          <div class="tags"><span class="tag">LGBTQ+</span><span class="tag">Music</span><span class="tag">Nightlife</span></div>
+          <p>The Sunset Strip, world-famous live music venues, high-end boutiques, and some of the best brunch spots in the city. Walkable in the core. Premium hotel prices.</p>
+          <div class="tags"><span class="tag">Music</span><span class="tag">Nightlife</span><span class="tag">Live Music</span></div>
           <div class="transport-line">🚌 <span>Bus lines on Sunset and Santa Monica Blvd</span></div>
         </div>
       </div>
@@ -777,7 +777,7 @@
         <input type="date" id="trip-start" value="2028-07-14" style="background:var(--navy);border:1px solid var(--card-border);color:var(--text-body);padding:8px 12px;border-radius:8px;font-size:13px;">
         <button class="btn-share" onclick="shareItinerary()">🔗 Share Link</button>
         <button class="btn-share" onclick="clearItinerary()">🗑️ Clear All</button>
-        <button class="btn-export" onclick="showEmailGate()">📧 Get Itinerary by Email</button>
+        <button class="btn-export" onclick="showEmailGate()">📧 Save &amp; Get by Email</button>
       </div>
     </div>
 
@@ -982,7 +982,7 @@
         <div class="trip-meta">
           <span>🕐 2.5 hrs drive from LA</span>
           <span>🚗 Car required — no public transport to the park</span>
-          <span>💰 $35 National Park entry fee</span>
+          <span>💰 $35 vehicle entry fee (America the Beautiful annual pass $80 covers this and all national parks)</span>
         </div>
       </div>
       <div class="daytrip-card">
@@ -1117,86 +1117,324 @@
 <section id="advertise" style="background: var(--navy-mid);">
   <div class="section-inner">
     <div class="section-header">
-      <h2>📢 Advertise &amp; Partner With Us</h2>
-      <p>Reach visitors who are actively planning their LA 2028 trip — often 1–3 years in advance. This is a high-intent audience making real decisions about hotels, restaurants, transport, and experiences.</p>
+      <h2>📢 Reach Visitors Planning Their LA 2028 Trip Right Now</h2>
+      <p>Most visitors start planning 12–24 months before arrival. This is when they choose hotels, book transport, and shortlist restaurants. Your brand needs to be visible at that planning moment — not after they've already booked.</p>
+      <p class="section-meta">All inquiries: <a href="mailto:customercareblackaiser@gmail.com">customercareblackaiser@gmail.com</a> &bull; We respond within 24 hours</p>
     </div>
 
-    <div class="media-stats">
+    <!-- AUDIENCE STATS -->
+    <div class="media-stats" style="margin-bottom:40px;">
       <div class="media-stat"><div class="ms-num">35+</div><div class="ms-label">Neighborhoods Covered</div></div>
       <div class="media-stat"><div class="ms-num">25</div><div class="ms-label">Olympic Venue Guides</div></div>
       <div class="media-stat"><div class="ms-num">Growing</div><div class="ms-label">Monthly Visitors</div></div>
+      <div class="media-stat"><div class="ms-num">High</div><div class="ms-label">Trip-Planning Intent</div></div>
       <div class="media-stat"><div class="ms-num">2028</div><div class="ms-label">Peak Traffic Year</div></div>
     </div>
 
-    <div class="pricing-grid">
-      <div class="price-card">
-        <h3>Local Business Listing</h3>
-        <div class="price">$199<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
-        <div class="price-note">Best for restaurants, hotels, tour operators, local experiences. 3-month minimum.</div>
-        <ul>
-          <li>Verified listing card in relevant section</li>
-          <li>Business description (up to 100 words)</li>
-          <li>Category tags, hours, booking link</li>
-          <li>"Verified Partner" label</li>
-          <li>Monthly click &amp; impression report</li>
-        </ul>
-        <a href="mailto:customercareblackaiser@gmail.com?subject=Local Business Listing Inquiry" class="btn-cta">Get Started →</a>
-      </div>
-      <div class="price-card featured">
-        <div class="price-badge">Most Popular</div>
-        <h3>Section Sponsor</h3>
-        <div class="price">$599<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
-        <div class="price-note">Best for transport companies, accommodation brands, travel tech. 6-month minimum.</div>
-        <ul>
-          <li>Exclusive sponsor label in one section</li>
-          <li>Banner at top of section (no animation)</li>
-          <li>One sponsored editorial piece per quarter</li>
-          <li>Newsletter feature as section sponsor</li>
-          <li>Bi-weekly performance report</li>
-        </ul>
-        <a href="mailto:customercareblackaiser@gmail.com?subject=Section Sponsor Inquiry" class="btn-cta">Contact Us →</a>
-      </div>
-      <div class="price-card">
-        <h3>Content Partnership</h3>
-        <div class="price">$1,499<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
-        <div class="price-note">Best for airlines, OTAs, tourism boards, major brands. 12-month minimum.</div>
-        <ul>
-          <li>Co-branded content series (3 articles/quarter)</li>
-          <li>Featured placement in itinerary builder</li>
-          <li>Homepage banner placement (rotating)</li>
-          <li>Newsletter feature once per month</li>
-          <li>Social mention 2x/month</li>
-          <li>Quarterly review call</li>
-        </ul>
-        <a href="mailto:customercareblackaiser@gmail.com?subject=Content Partnership Inquiry" class="btn-cta">Contact Us →</a>
-      </div>
-      <div class="price-card">
-        <h3>Official Guide Partner</h3>
-        <div class="price">$3,500<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
-        <div class="price-note">Best for national tourism boards, international airlines, destination management. 24-month minimum.</div>
-        <ul>
-          <li>Homepage hero integration (co-branding)</li>
-          <li>Dedicated destination page co-production</li>
-          <li>Full itinerary builder integration</li>
-          <li>Monthly newsletter headline sponsor</li>
-          <li>Press &amp; media coordination</li>
-          <li>Exclusive category (no competing sponsors)</li>
-          <li>Weekly performance dashboard</li>
-        </ul>
-        <a href="mailto:customercareblackaiser@gmail.com?subject=Official Guide Partner Inquiry" class="btn-cta">Become a Partner →</a>
+    <!-- WHAT TO SELL FIRST CALLOUT -->
+    <div style="background:rgba(240,180,41,0.08);border:1px solid rgba(240,180,41,0.25);border-radius:12px;padding:20px 24px;margin-bottom:40px;">
+      <h3 style="color:var(--gold);font-size:15px;font-weight:700;margin-bottom:8px;">Start simple. Get visible fast.</h3>
+      <p style="font-size:13px;color:var(--text-body);line-height:1.7;">You do not need a big budget or long contract to appear here. A Featured Listing or a single Newsletter Sponsor slot is the fastest way to get in front of the planning audience — and the easiest first step for both sides. Bigger packages are available once you've seen what works.</p>
+    </div>
+
+    <!-- REVENUE LADDER TABS -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;" id="pkg-tabs">
+      <button class="filter-btn active" onclick="showPkg('listings')">Featured Listings</button>
+      <button class="filter-btn" onclick="showPkg('zones')">Venue Zone Sponsors</button>
+      <button class="filter-btn" onclick="showPkg('newsletter')">Newsletter Packages</button>
+      <button class="filter-btn" onclick="showPkg('planning')">Custom Planning Service</button>
+      <button class="filter-btn" onclick="showPkg('enterprise')">Enterprise Campaigns</button>
+    </div>
+
+    <!-- FEATURED LISTINGS -->
+    <div id="pkg-listings" class="pkg-panel">
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;">Best for: restaurants, hotels, airport transfers, private drivers, tour operators, luggage storage, eSIM/mobile brands, day-trip vendors. Low risk, easy to start, month-to-month available.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Starter Listing</h3>
+          <div class="price">$99<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
+          <div class="price-note">One category. Month-to-month. Cancel anytime.</div>
+          <ul>
+            <li>Listing card in one relevant section</li>
+            <li>Business name, short description, category tags</li>
+            <li>CTA button to your website or booking page</li>
+            <li>Mobile-optimised display</li>
+            <li>Basic monthly click report</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Starter Listing Inquiry" class="btn-cta">Get Started →</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">Most Popular</div>
+          <h3>Plus Listing</h3>
+          <div class="price">$299<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
+          <div class="price-note">Top-third placement. 3-month minimum.</div>
+          <ul>
+            <li>Priority placement (top 3 in category)</li>
+            <li>Verified Partner badge</li>
+            <li>One image or logo display</li>
+            <li>One sponsored mention in a newsletter or itinerary email</li>
+            <li>Monthly performance snapshot</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Plus Listing Inquiry" class="btn-cta">Get Started →</a>
+        </div>
+        <div class="price-card">
+          <h3>Premium Listing</h3>
+          <div class="price">$499<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
+          <div class="price-note">Multiple category placement. 3-month minimum.</div>
+          <ul>
+            <li>Placement across up to 3 relevant categories</li>
+            <li>Homepage featured module rotation</li>
+            <li>Itinerary builder recommendation integration</li>
+            <li>Monthly reporting with click and impression data</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Premium Listing Inquiry" class="btn-cta">Get Started →</a>
+        </div>
       </div>
     </div>
 
-    <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:28px;margin-top:32px;text-align:center;">
-      <h3 style="color:var(--white);font-size:17px;margin-bottom:8px;">Have a custom requirement?</h3>
-      <p style="color:var(--text-muted);font-size:14px;margin-bottom:16px;">We work with brands of all sizes. If your needs don't fit a standard package — long-term Olympics campaign, custom editorial integration, international market targeting — let's talk.</p>
-      <a href="mailto:customercareblackaiser@gmail.com?subject=Custom Partnership Inquiry" class="btn-primary" style="display:inline-block;">📧 customercareblackaiser@gmail.com</a>
-      <p style="color:var(--text-muted);font-size:12px;margin-top:12px;">We typically respond within 24 hours. All packages include a free consultation call.</p>
+    <!-- VENUE ZONE SPONSORS -->
+    <div id="pkg-zones" class="pkg-panel" style="display:none;">
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;">Best for: hotels and accommodation near venue zones, airport transfer services, local hospitality brands, attractions operators. Placement is tied to user intent — visitors planning for SoFi Stadium see Inglewood sponsors, visitors arriving at LAX see transfer options.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Zone Pilot</h3>
+          <div class="price">$350<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
+          <div class="price-note">One venue zone. 1-month pilot available.</div>
+          <ul>
+            <li>Sponsor label in one venue zone section (e.g. "Dining near SoFi Stadium — Presented by [Brand]")</li>
+            <li>CTA button in relevant guide section</li>
+            <li>One newsletter mention</li>
+            <li>Basic click report</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Zone Pilot Inquiry" class="btn-cta">Start a Pilot →</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">Best Value</div>
+          <h3>Zone Sponsor</h3>
+          <div class="price">$750<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
+          <div class="price-note">One venue zone. 3-month minimum.</div>
+          <ul>
+            <li>Exclusive sponsor label in chosen zone section</li>
+            <li>Section banner + logo (static, no animation)</li>
+            <li>Itinerary builder — recommended partner for relevant stops</li>
+            <li>Email mention to subscribers who select that zone</li>
+            <li>Bi-weekly performance report</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Zone Sponsor Inquiry" class="btn-cta">Reserve a Zone →</a>
+        </div>
+        <div class="price-card">
+          <h3>Multi-Zone Package</h3>
+          <div class="price">$1,500<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
+          <div class="price-note">Up to 3 venue zones. 6-month minimum.</div>
+          <ul>
+            <li>Exclusive sponsorship across up to 3 venue zones</li>
+            <li>Full itinerary builder partner integration across zones</li>
+            <li>Monthly sponsored email feature</li>
+            <li>Homepage banner (rotating)</li>
+            <li>Quarterly review call + detailed reporting</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Multi-Zone Package Inquiry" class="btn-cta">Contact Us →</a>
+        </div>
+      </div>
+
+      <!-- ZONE TARGETS -->
+      <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:20px;margin-top:24px;">
+        <h4 style="color:var(--white);font-size:14px;font-weight:700;margin-bottom:12px;">Available venue zones:</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;">
+          <div style="background:var(--navy);border:1px solid var(--card-border);border-radius:8px;padding:10px;font-size:12px;color:var(--text-body);">🏈 <strong style="color:var(--white);">SoFi / Inglewood</strong><br>Opening Ceremony &amp; Athletics</div>
+          <div style="background:var(--navy);border:1px solid var(--card-border);border-radius:8px;padding:10px;font-size:12px;color:var(--text-body);">🏀 <strong style="color:var(--white);">Downtown LA</strong><br>Crypto.com Arena / LACC</div>
+          <div style="background:var(--navy);border:1px solid var(--card-border);border-radius:8px;padding:10px;font-size:12px;color:var(--text-body);">🤸 <strong style="color:var(--white);">Westside / UCLA</strong><br>Gymnastics, Tennis</div>
+          <div style="background:var(--navy);border:1px solid var(--card-border);border-radius:8px;padding:10px;font-size:12px;color:var(--text-body);">⚽ <strong style="color:var(--white);">Pasadena / Rose Bowl</strong><br>Soccer</div>
+          <div style="background:var(--navy);border:1px solid var(--card-border);border-radius:8px;padding:10px;font-size:12px;color:var(--text-body);">🏊 <strong style="color:var(--white);">Exposition Park / USC</strong><br>Swimming, Aquatics</div>
+          <div style="background:var(--navy);border:1px solid var(--card-border);border-radius:8px;padding:10px;font-size:12px;color:var(--text-body);">✈️ <strong style="color:var(--white);">LAX Arrival Zone</strong><br>Airport arrival &amp; transfer guide</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEWSLETTER PACKAGES -->
+    <div id="pkg-newsletter" class="pkg-panel" style="display:none;">
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;">We send a weekly email to subscribers who opted in via the itinerary builder and newsletter signup — a high-intent audience actively planning their LA 2028 trip. Flat-fee pricing while the list grows. Bundle 4 issues for a discount.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Supporting Sponsor</h3>
+          <div class="price">$150<span style="font-size:14px;color:var(--text-muted)">/issue</span></div>
+          <div class="price-note">Inline placement within newsletter body. Available per-issue or bundled.</div>
+          <ul>
+            <li>Inline branded recommendation (2–3 lines + logo)</li>
+            <li>CTA link to your site or booking page</li>
+            <li>Click reporting after each issue</li>
+            <li>Bundle 4 issues: $500 (save $100)</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Newsletter Supporting Sponsor" class="btn-cta">Reserve a Slot →</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">Top Placement</div>
+          <h3>Headline Sponsor</h3>
+          <div class="price">$350<span style="font-size:14px;color:var(--text-muted)">/issue</span></div>
+          <div class="price-note">Top of newsletter, above the fold. One sponsor per issue.</div>
+          <ul>
+            <li>Header placement — first thing subscribers see</li>
+            <li>Branded intro line (up to 25 words)</li>
+            <li>Logo + CTA button</li>
+            <li>Exclusive (no competing category in same issue)</li>
+            <li>Click reporting after each issue</li>
+            <li>Bundle 4 issues: $1,200 (save $200)</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Newsletter Headline Sponsor" class="btn-cta">Reserve →</a>
+        </div>
+        <div class="price-card">
+          <h3>Newsletter Bundle</h3>
+          <div class="price">$1,800<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
+          <div class="price-note">4 issues/month. Headline + Supporting slots. Best for brands wanting consistent presence.</div>
+          <ul>
+            <li>Headline sponsor in 2 issues/month</li>
+            <li>Supporting sponsor in 2 issues/month</li>
+            <li>Priority booking for following month</li>
+            <li>Monthly aggregate click report</li>
+            <li>3-month minimum</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Newsletter Bundle" class="btn-cta">Contact Us →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CUSTOM PLANNING SERVICE -->
+    <div id="pkg-planning" class="pkg-panel" style="display:none;">
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;">Sell personalised LA 2028 trip plans directly to travellers. High margin, scalable, and creates organic sponsor integration opportunities. Positioned as a premium service for families, groups, international visitors, and diaspora travellers who want human-curated planning.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Lite Plan</h3>
+          <div class="price">$149<span style="font-size:14px;color:var(--text-muted)">/plan</span></div>
+          <div class="price-note">Best for solo travellers or couples. Fast turnaround.</div>
+          <ul>
+            <li>1 custom day-by-day itinerary (up to 5 days)</li>
+            <li>Hotel area recommendation with rationale</li>
+            <li>Transport notes for your specific events</li>
+            <li>3 dining picks near your venues</li>
+            <li>Delivered by email within 48 hours</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Lite Plan Request" class="btn-cta">Request a Plan →</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">Most Requested</div>
+          <h3>Group Plan</h3>
+          <div class="price">$349<span style="font-size:14px;color:var(--text-muted)">/plan</span></div>
+          <div class="price-note">Best for families, groups of 4–10. Full planning package.</div>
+          <ul>
+            <li>3–5 day custom itinerary optimised for group logistics</li>
+            <li>Family or group-specific hotel recommendation</li>
+            <li>Transfer &amp; transport plan for your event schedule</li>
+            <li>8–10 dining picks (varied budgets and cuisines)</li>
+            <li>Day trip recommendation if applicable</li>
+            <li>Delivered within 72 hours</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Group Plan Request" class="btn-cta">Request a Plan →</a>
+        </div>
+        <div class="price-card">
+          <h3>Premium Concierge</h3>
+          <div class="price">$799<span style="font-size:14px;color:var(--text-muted)">+</span></div>
+          <div class="price-note">Best for premium travellers, corporate groups, diaspora families. White-glove planning.</div>
+          <ul>
+            <li>Full multi-day itinerary with event day logistics</li>
+            <li>Curated hotel shortlist (with specific room-type notes)</li>
+            <li>Airport arrival coordination recommendations</li>
+            <li>Restaurant reservation guidance (we advise which to call)</li>
+            <li>Pre-trip Q&amp;A by email</li>
+            <li>1 revision round included</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Premium Concierge Request" class="btn-cta">Request →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTERPRISE -->
+    <div id="pkg-enterprise" class="pkg-panel" style="display:none;">
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;">For major travel brands, hospitality groups, tourism boards, airlines, telecoms, and financial services brands targeting the LA 2028 audience at scale. Seasonal campaign structure with guaranteed placement, co-branded content, and cross-channel delivery.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Seasonal Campaign</h3>
+          <div class="price">$2,500<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
+          <div class="price-note">12-month minimum. Full brand integration.</div>
+          <ul>
+            <li>Homepage hero banner (rotating)</li>
+            <li>Site-wide footer logo placement</li>
+            <li>3 co-branded content articles per quarter (labeled Partner Content)</li>
+            <li>Monthly newsletter headline sponsorship</li>
+            <li>Itinerary builder full integration</li>
+            <li>Weekly performance dashboard</li>
+            <li>Quarterly strategy call</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Seasonal Campaign Inquiry" class="btn-cta">Contact Us →</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">Full Partnership</div>
+          <h3>Official Guide Partner</h3>
+          <div class="price">$5,000<span style="font-size:14px;color:var(--text-muted)">/month</span></div>
+          <div class="price-note">24-month minimum. Exclusive category. Tourism boards, national airlines, major OTAs.</div>
+          <ul>
+            <li>Homepage hero co-branding (not a banner — integrated design)</li>
+            <li>Dedicated destination or category page co-production</li>
+            <li>Full itinerary builder category ownership</li>
+            <li>Exclusive — no competing category sponsor</li>
+            <li>Monthly newsletter headline (every issue)</li>
+            <li>Press and media coordination</li>
+            <li>Weekly performance dashboard</li>
+            <li>Monthly executive review</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Official Guide Partner Inquiry" class="btn-cta">Become a Partner →</a>
+        </div>
+        <div class="price-card">
+          <h3>Custom Campaign</h3>
+          <div class="price" style="font-size:20px;">Let's Talk</div>
+          <div class="price-note">Bespoke. Lead-gen hybrids, rev-share, co-branded microsites, international market targeting.</div>
+          <ul>
+            <li>Performance-based (CPA or revenue share) options available</li>
+            <li>Country or diaspora audience targeting</li>
+            <li>Co-branded microsite or landing page</li>
+            <li>Custom data and analytics arrangement</li>
+            <li>No minimum term — structured around campaign goals</li>
+          </ul>
+          <a href="mailto:customercareblackaiser@gmail.com?subject=Custom Campaign Inquiry" class="btn-cta">Start a Conversation →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHO TO PITCH FIRST -->
+    <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:24px;margin-top:40px;">
+      <h3 style="color:var(--white);font-size:16px;font-weight:700;margin-bottom:12px;">Who buys first</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div>
+          <p style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">Start here — fast decisions</p>
+          <ul style="list-style:none;padding:0;">
+            <li style="font-size:13px;color:var(--text-body);padding:4px 0;border-bottom:1px solid var(--card-border);">🍽️ Restaurants near SoFi, DTLA, Santa Monica, Pasadena</li>
+            <li style="font-size:13px;color:var(--text-body);padding:4px 0;border-bottom:1px solid var(--card-border);">🚗 Airport transfer and private car services</li>
+            <li style="font-size:13px;color:var(--text-body);padding:4px 0;border-bottom:1px solid var(--card-border);">🏨 Boutique hotels near venue zones</li>
+            <li style="font-size:13px;color:var(--text-body);padding:4px 0;border-bottom:1px solid var(--card-border);">🎒 Tour operators and day-trip vendors</li>
+            <li style="font-size:13px;color:var(--text-body);padding:4px 0;">📱 eSIM, luggage storage, travel insurance brands</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">Second wave — larger budgets</p>
+          <ul style="list-style:none;padding:0;">
+            <li style="font-size:13px;color:var(--text-body);padding:4px 0;border-bottom:1px solid var(--card-border);">🏢 Hospitality groups and hotel chains</li>
+            <li style="font-size:13px;color:var(--text-body);padding:4px 0;border-bottom:1px solid var(--card-border);">🌍 Tourism boards and diaspora travel operators</li>
+            <li style="font-size:13px;color:var(--text-body);padding:4px 0;border-bottom:1px solid var(--card-border);">✈️ Airlines with LA 2028 route campaigns</li>
+            <li style="font-size:13px;color:var(--text-body);padding:4px 0;border-bottom:1px solid var(--card-border);">💳 Financial and payment brands</li>
+            <li style="font-size:13px;color:var(--text-body);padding:4px 0;">📡 Telecoms and international data brands</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT CTA -->
+    <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:28px;margin-top:24px;text-align:center;">
+      <h3 style="color:var(--white);font-size:17px;margin-bottom:8px;">Not sure which package fits?</h3>
+      <p style="color:var(--text-muted);font-size:14px;margin-bottom:18px;">Email us with a brief description of your business and what you're trying to achieve. We'll come back with a specific recommendation — no sales deck, no pitch call required to get started.</p>
+      <a href="mailto:customercareblackaiser@gmail.com?subject=Advertising Inquiry - LA City Guide" class="btn-primary" style="display:inline-block;margin-bottom:10px;">📧 customercareblackaiser@gmail.com</a>
+      <p style="color:var(--text-muted);font-size:12px;">We respond within 24 hours. All packages include a free consultation call before commitment.</p>
     </div>
   </div>
-</section>
-
-<!-- NEWSLETTER -->
+</section><!-- NEWSLETTER -->
 <div class="newsletter-section">
   <div class="newsletter-inner">
     <h2>Get LA28 Updates in Your Inbox</h2>
@@ -1259,7 +1497,7 @@
       <input type="email" id="modal-email" placeholder="your@email.com" style="flex:1;">
       <button onclick="submitEmailGate()">Send It</button>
     </div>
-    <p style="font-size:11px;color:var(--text-muted);margin-top:10px;">No spam. Unsubscribe any time.</p>
+    <div id="partner-recs"></div><p style="font-size:11px;color:var(--text-muted);margin-top:10px;">No spam. Unsubscribe any time.</p>
   </div>
 </div>
 
@@ -1268,6 +1506,14 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
+
+// ========== SMOOTH NAV ==========
+function smoothNav(id) {
+  const el = document.getElementById(id);
+  if (el) { el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  return false;
+}
+
 // ========== ITINERARY BUILDER ==========
 let currentDay = 1;
 let totalDays = 5;
@@ -1417,7 +1663,49 @@ function shareItinerary() {
 }
 
 function showEmailGate() {
-  document.getElementById('email-modal').classList.add('open');
+  // Build context-aware partner suggestions based on itinerary
+  const allStops = [];
+  Object.values(itinerary).forEach(day => day.forEach(s => allStops.push(s.name)));
+  
+  const partners = [];
+  if (allStops.some(s => /sofi|inglewood|athletics/i.test(s))) {
+    partners.push('🏨 Hotels near Inglewood &amp; SoFi Stadium');
+    partners.push('🚗 Airport transfer services from LAX to Inglewood');
+  }
+  if (allStops.some(s => /crypto|downtown|convention/i.test(s))) {
+    partners.push('🍽️ Dining near Downtown LA &amp; Crypto.com Arena');
+    partners.push('🏨 Downtown LA hotels &amp; serviced apartments');
+  }
+  if (allStops.some(s => /ucla|pauley|westwood|beverly|santa monica/i.test(s))) {
+    partners.push('🏨 Westside hotels near UCLA venues');
+    partners.push('🚌 Westside transport &amp; shuttle options');
+  }
+  if (allStops.some(s => /malibu|nobu/i.test(s))) {
+    partners.push('🚗 PCH scenic drive &amp; car hire options');
+  }
+  if (allStops.some(s => /disneyland|anaheim/i.test(s))) {
+    partners.push('🎡 Disneyland tickets &amp; Anaheim accommodation');
+    partners.push('🚆 Metrolink day passes for Anaheim trip');
+  }
+  if (allStops.some(s => /rose bowl|pasadena/i.test(s))) {
+    partners.push('🏨 Pasadena hotels &amp; Old Town dining');
+  }
+  if (allStops.length > 0 && partners.length === 0) {
+    partners.push('🏨 LA accommodation near your selected stops');
+    partners.push('🚗 Private transfer &amp; transport options');
+  }
+  
+  // Update the modal with recommendations
+  const modal = document.getElementById('email-modal');
+  let extraHtml = '';
+  if (partners.length > 0) {
+    extraHtml = '<div style="background:rgba(240,180,41,0.08);border:1px solid rgba(240,180,41,0.2);border-radius:8px;padding:12px;margin-bottom:14px;"><p style=\"font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;\">Based on your itinerary, we can also recommend:</p>' +
+      partners.map(p => '<p style=\"font-size:12px;color:var(--text-body);padding:3px 0;\">✓ ' + p + '</p>').join('') + '</div>';
+  }
+  
+  const rec = modal.querySelector('#partner-recs');
+  if (rec) rec.innerHTML = extraHtml;
+  modal.classList.add('open');
 }
 
 function submitEmailGate() {
@@ -1432,6 +1720,17 @@ function submitEmailGate() {
 }
 
 document.getElementById('trip-days').addEventListener('change', renderDayBlocks);
+
+
+// ========== PACKAGE TAB SWITCHER ==========
+function showPkg(tab) {
+  document.querySelectorAll('.pkg-panel').forEach(p => p.style.display = 'none');
+  const el = document.getElementById('pkg-' + tab);
+  if (el) el.style.display = 'block';
+  document.querySelectorAll('#pkg-tabs .filter-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick').includes("'" + tab + "'"));
+  });
+}
 
 // ========== SAMPLE ITINERARIES ==========
 const sampleItineraries = {
