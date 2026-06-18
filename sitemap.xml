@@ -1,60 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <url>
-    <loc>https://thelacityguide.com/</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://thelacityguide.com/#neighborhoods</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://thelacityguide.com/#venues</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://thelacityguide.com/#itinerary</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thelacityguide.com/#restaurants</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thelacityguide.com/#transport</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thelacityguide.com/#daytrips</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://thelacityguide.com/#international</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thelacityguide.com/#advertise</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
+  <url><loc>https://thelacityguide.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  
+  <!-- Blog -->
+  <url><loc>https://thelacityguide.com/blog/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thelacityguide.com/blog/best-neighborhoods-to-stay.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/blog/how-to-get-around-la.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/blog/la28-venue-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  
+  <!-- Olympic Venues -->
+  <url><loc>https://thelacityguide.com/venues/sofi-stadium.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thelacityguide.com/venues/crypto-arena.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thelacityguide.com/venues/ucla-campus.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/venues/rose-bowl.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://thelacityguide.com/venues/dignity-health-sports-park.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/venues/honda-center.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/venues/long-beach-arena.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/venues/santa-anita-park.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/venues/el-dorado-park.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  
+  <!-- Neighborhoods -->
+  <url><loc>https://thelacityguide.com/neighborhoods/downtown-la.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/neighborhoods/hollywood.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/neighborhoods/venice-santa-monica.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/neighborhoods/koreatown.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/neighborhoods/pasadena.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/neighborhoods/inglewood.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/neighborhoods/long-beach.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  
+  <!-- International Visitor Guides -->
+  <url><loc>https://thelacityguide.com/international/uk.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/international/australia.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/international/canada.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/international/mexico.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/international/japan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/international/brazil.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/international/nigeria.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/international/germany.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thelacityguide.com/international/france.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  
+  <!-- Transport Guides -->
+  <url><loc>https://thelacityguide.com/transport/metro.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/transport/lax-airport.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelacityguide.com/transport/rideshare.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  
+  <!-- Restaurant Pages -->
+  <url><loc>https://thelacityguide.com/restaurants/dtla.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thelacityguide.com/restaurants/koreatown.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thelacityguide.com/restaurants/inglewood.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
