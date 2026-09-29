@@ -13,9 +13,11 @@
     site: "lacityguide",
     ga4: "",        // your Google Analytics ID, e.g. "G-ABC123XYZ"
     metaPixel: "",  // leave empty unless we are running Meta ads for this site
-    hub: ""         // your Growth Hub address, e.g. "https://growth-hub.yourname.workers.dev"
+    hub: "",        // your Growth Hub address, e.g. "https://growth-hub.yourname.workers.dev"
+    web3forms: "82857485-4fd0-4838-a04d-1a0731eb3f27"  // emails every signup to your inbox (get a new key at web3forms.com)
   };
   // ==================================================
+  var SITE_NAME = "The LA City Guide";
   var cfg = {}, page = window.GROWTH || {};
   for (var k in SETTINGS) cfg[k] = page[k] || SETTINGS[k];   // a page can override, blanks don't
   var PARTNERS = {
@@ -76,12 +78,32 @@
     /** lead({email, context, name?, company?, message?, website?}) -> Promise<boolean> */
     lead: function (data) {
       var payload = Object.assign({ page: location.pathname + location.hash, attribution: attribution() }, data || {});
+      if (payload.website) return Promise.resolve(true);   // spam bot filled the hidden field: pretend it worked
       if (cfg.ga4) gtag("event", "generate_lead", { lead_context: payload.context || "signup" });
       if (cfg.metaPixel) fbq("track", "Lead", { content_name: payload.context || "signup" });
-      if (!cfg.hub) return Promise.resolve(false);
-      return fetch(cfg.hub.replace(/\/$/, "") + "/lead", {
+      var jobs = [];
+      // 1) a saved copy in the Growth Hub spreadsheet
+      if (cfg.hub) jobs.push(fetch(cfg.hub.replace(/\/$/, "") + "/lead", {
         method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload), keepalive: true
-      }).then(function (r) { return r.ok; }).catch(function () { return false; });
+      }).then(function (r) { return r.ok; }).catch(function () { return false; }));
+      // 2) an email to your inbox
+      if (cfg.web3forms) {
+        var a = payload.attribution || {};
+        var lines = ["Site: " + SITE_NAME, "Type: " + (payload.context || "signup"), "Email: " + payload.email];
+        if (payload.name) lines.push("Name: " + payload.name);
+        if (payload.company) lines.push("Organization: " + payload.company);
+        if (payload.message) lines.push("Details: " + payload.message);
+        lines.push("Page: " + payload.page);
+        if (a.utm_source || a.utm_campaign) lines.push("Came from: " + [a.utm_source, a.utm_medium, a.utm_campaign].filter(Boolean).join(" / "));
+        jobs.push(fetch("https://api.web3forms.com/submit", {
+          method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({ access_key: cfg.web3forms, subject: SITE_NAME + ": new " + (payload.context || "signup") + " from " + payload.email,
+            from_name: SITE_NAME, email: payload.email, name: payload.name || payload.email, message: lines.join("\n") })
+        }).then(function (r) { return r.json(); }).then(function (j) { return !!(j && j.success); }).catch(function () { return false; }));
+      }
+      if (!jobs.length) return Promise.resolve(false);
+      // success if at least one of the two worked: nothing is lost unless both fail
+      return Promise.all(jobs).then(function (res) { return res.indexOf(true) !== -1; });
     }
   };
 })();
