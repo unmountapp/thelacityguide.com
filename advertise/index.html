@@ -8,6 +8,8 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://thelacityguide.com/advertise/">
 <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f0f0f;color:#e8e8e8;line-height:1.7}a{color:#d4a843;text-decoration:none}a:hover{text-decoration:underline}nav{background:#1a1a1a;border-bottom:1px solid #333;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;min-height:60px}.nav-brand{font-size:1.1rem;font-weight:700;color:#fff}.nav-links{display:flex;gap:20px;flex-wrap:wrap}.nav-links a{color:#ccc;font-size:.9rem}.nav-links a:hover{color:#d4a843}.site-notice{background:#1c2a1c;border-bottom:1px solid #2d4a2d;padding:10px 24px;font-size:.82rem;color:#9eb89e;text-align:center}.container{max-width:900px;margin:0 auto;padding:40px 24px}h1{font-size:2rem;color:#fff;margin-bottom:8px}h2{font-size:1.3rem;color:#d4a843;margin:32px 0 12px}p{margin-bottom:14px;color:#ccc}ul{margin:0 0 14px 20px;color:#ccc}ul li{margin-bottom:6px}.lead{font-size:1.05rem;color:#ddd;margin-bottom:24px}.tier-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin:24px 0}.tier-card{background:#1a1a1a;border:1px solid #333;border-radius:10px;padding:24px}.tier-card.featured{border-color:#d4a843}.tier-card h3{color:#d4a843;font-size:1.1rem;margin-bottom:6px}.tier-card .price{font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:12px}.tier-card ul{margin-left:16px}.tier-card ul li{color:#bbb;font-size:.9rem;margin-bottom:5px}.contact-form{background:#1a1a1a;border:1px solid #333;border-radius:10px;padding:32px;margin-top:40px}.form-group{margin-bottom:20px}.form-group label{display:block;color:#ccc;margin-bottom:6px;font-size:.9rem;font-weight:500}.form-group input,.form-group textarea,.form-group select{width:100%;background:#111;border:1px solid #333;border-radius:6px;padding:10px 14px;color:#e8e8e8;font-size:.95rem;font-family:inherit}.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:#d4a843}.form-group textarea{min-height:120px;resize:vertical}.btn{background:#d4a843;color:#000;border:none;padding:12px 28px;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer}.btn:hover{background:#c4983a}.note{font-size:.82rem;color:#666;margin-top:8px}footer{background:#111;border-top:1px solid #222;padding:40px 24px;margin-top:60px}.footer-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between}.footer-col h4{color:#d4a843;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}.footer-col a{display:block;color:#888;font-size:.85rem;margin-bottom:6px}.footer-col a:hover{color:#d4a843}.footer-bottom{max-width:1100px;margin:24px auto 0;padding-top:20px;border-top:1px solid #222;font-size:.78rem;color:#555;text-align:center}</style>
+<script>window.GROWTH={site:"lacityguide",ga4:"",metaPixel:"",hub:""};</script>
+<script src="/growth.js"></script>
 </head>
 <body>
 <nav><a class="nav-brand" href="/">&#127963; The LA City Guide</a><div class="nav-links"><a href="/neighborhoods/">Neighborhoods</a><a href="/venues/">Venues</a><a href="/transport/">Getting Around</a><a href="/international/">International Visitors</a><a href="/blog/">Blog</a><a href="/advertise/">Advertise</a></div></nav>
@@ -108,5 +110,23 @@
 </div>
 </div>
 <footer><div class="footer-inner"><div class="footer-col"><h4>Explore</h4><a href="/neighborhoods/">Neighborhoods</a><a href="/venues/">Olympic Venues</a><a href="/transport/">Getting Around</a><a href="/international/">International Visitors</a><a href="/blog/">Blog &amp; Guides</a></div><div class="footer-col"><h4>Plan Your Trip</h4><a href="/blog/best-neighborhoods-to-stay.html">Best Areas to Stay</a><a href="/blog/how-to-get-around-la.html">Transport Guide</a><a href="/transport/lax-airport.html">LAX Airport Guide</a><a href="/transport/metro.html">LA Metro Guide</a></div><div class="footer-col"><h4>Legal &amp; Trust</h4><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Use</a><a href="/disclosure/">Advertising Disclosure</a><a href="/advertise/">Advertise with Us</a><a href="/media-kit/">Media Kit</a></div><div class="footer-col"><h4>Official Sources</h4><a href="https://la28.org" rel="noopener noreferrer" target="_blank">LA28 Official Site</a><a href="https://metro.net" rel="noopener noreferrer" target="_blank">LA Metro</a><a href="https://flylax.com" rel="noopener noreferrer" target="_blank">FlyLAX</a><a href="https://travel.state.gov" rel="noopener noreferrer" target="_blank">US Visa Info</a></div></div><div class="footer-bottom"><p>&copy; 2026 The LA City Guide. Independently operated. Not affiliated with LA28, the IOC, or the City of Los Angeles.</p><p style="margin-top:8px"><a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Use</a> | <a href="/disclosure/">Advertising Disclosure</a> | <a href="/about/">About</a> | <a href="/contact/">Contact</a></p></div></footer>
+<script>
+/* Growth Engine: save the form to the Growth Hub; if that fails, fall back to the email app. */
+(function(){
+  var f=document.querySelector('form[name="advertise"]'); if(!f) return;
+  f.addEventListener('submit',function(e){
+    if(!window.Growth||f.dataset.fallback) return;
+    e.preventDefault();
+    var v=function(n){var el=f.querySelector('[name="'+n+'"]');return el?el.value.trim():'';};
+    var btn=f.querySelector('button,[type=submit]'); var label=btn?btn.textContent:'';
+    if(btn){btn.disabled=true;btn.textContent='Sending...';}
+    Growth.lead({email:v('email'),context:'advertiser',name:v('contact'),company:v('business'),
+      message:[v('interest')||v('subject'),v('message')].filter(Boolean).join(' | ')}).then(function(ok){
+      if(ok){f.innerHTML='<p style="font-size:1.05rem;color:#9eb89e;padding:16px 0">Thanks, your message is in. We reply within 2 to 3 business days.</p>';}
+      else{f.dataset.fallback='1';if(btn){btn.disabled=false;btn.textContent=label;}f.submit();}
+    });
+  });
+})();
+</script>
 </body>
 </html>
