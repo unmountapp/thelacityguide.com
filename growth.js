@@ -11,7 +11,7 @@
   // ===== THE ONLY LINES YOU EDIT FOR THIS SITE =====
   var SETTINGS = {
     site: "lacityguide",
-    ga4: "",        // your Google Analytics ID, e.g. "G-ABC123XYZ"
+    ga4: "G-DHH2SYM71H",        // your Google Analytics ID, e.g. "G-ABC123XYZ"
     metaPixel: "",  // leave empty unless we are running Meta ads for this site
     hub: "",        // your Growth Hub address, e.g. "https://growth-hub.yourname.workers.dev"
     web3forms: "82857485-4fd0-4838-a04d-1a0731eb3f27"  // emails every signup to your inbox (get a new key at web3forms.com)
